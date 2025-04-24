@@ -1,11 +1,11 @@
 from flask import Flask, request, render_template
 from elasticsearch import Elasticsearch
 import logging
-import base64
+from math import ceil
 
 app = Flask(__name__)
 
-# Enable Elasticsearch debug logs at the very start
+# Enable Elasticsearch debug logs
 logging.basicConfig(level=logging.DEBUG)
 
 # Elasticsearch connection
@@ -14,17 +14,21 @@ es = Elasticsearch(
     api_key="alNvUWFaWUJpd01WVUl2YUJ3eEs6TE5Hb1pVR0hSbXlMN3gyVU1Ea2JLUQ=="
 )
 
-# Confirm Elasticsearch endpoint
-# print("Elasticsearch Info:", es.info())
-
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/elser_search', methods=['GET', 'POST'])
 def search():
     results = []
+    total = 0
+    page = int(request.args.get('page', 1))
+    size = 10  # Results per page
+    total_pages = 0
+
     if request.method == 'POST':
         search_term = request.form['query']
-        
-        # Elasticsearch query with text_expansion
+        from_ = (page - 1) * size
+
         query = {
+            "from": from_,
+            "size": size,
             "query": {
                 "bool": {
                     "should": [
@@ -42,16 +46,11 @@ def search():
             "_source": ["title", "directions", "ingredients", "url"]
         }
 
-        # Prepare authentication header (manual for perform_request)
-        api_key = "alNvUWFaWUJpd01WVUl2YUJ3eEs6TE5Hb1pVR0hSbXlMN3gyVU1Ea2JLUQ=="
-        # encoded_api_key = base64.b64encode(api_key.encode()).decode()
-
         headers = {
             "Content-Type": "application/json",
-            "Authorization": f"ApiKey {api_key}"
+            "Authorization": "ApiKey alNvUWFaWUJpd01WVUl2YUJ3eEs6TE5Hb1pVR0hSbXlMN3gyVU1Ea2JLUQ=="
         }
 
-        # Send raw request
         status, response_body = es.transport.perform_request(
             "POST",
             "/search-testing-v4/_search",
@@ -61,12 +60,23 @@ def search():
 
         print("Response Body:", response_body)
 
-        if "hits" in response_body:
-            results = [hit['_source'] for hit in response_body['hits']['hits']]
-        else:
-            results = []
+        total = response_body['hits']['total']['value']
+        total_pages = ceil(total / size)
+        results = [
+            {
+                **hit['_source'],
+                '_score': hit['_score']
+            }
+            for hit in response_body['hits']['hits']
+        ]
 
-    return render_template('search.html', results=results)
+    return render_template(
+        'search.html',
+        results=results,
+        total=total,
+        page=page,
+        total_pages=total_pages
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)
