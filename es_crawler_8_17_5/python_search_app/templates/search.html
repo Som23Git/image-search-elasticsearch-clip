@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Search</title>
+</head>
+<body>
+    <h1>Recipe Search (Powered by ELSER)</h1>
+    <form method="post">
+        <input type="text" name="query" placeholder="Search recipes..." required>
+        <button type="submit">Search</button>
+    </form>
+
+    {% if results %}
+        <h2>Results:</h2>
+        <ul>
+            {% for r in results %}
+                <li>
+                    <strong>{{ r.title }}</strong><br>
+                    <a href="{{ r.url }}" target="_blank">{{ r.url }}</a><br>
+                    <em>Ingredients:</em> {{ r.ingredients }}<br>
+                    <em>Directions:</em> {{ r.directions }}<br><br>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
