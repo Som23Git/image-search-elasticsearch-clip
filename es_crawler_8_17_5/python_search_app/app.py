@@ -1,12 +1,24 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from elasticsearch import Elasticsearch
 import logging
 from math import ceil
+from elasticapm.contrib.flask import ElasticAPM
 
 app = Flask(__name__)
 
 # Enable Elasticsearch debug logs
 logging.basicConfig(level=logging.DEBUG)
+
+# Elastic APM configuration
+app.config['ELASTIC_APM'] = {
+    'SERVICE_NAME': 'recipe-search-app',
+    'SERVER_URL': 'https://1cf8e211c1bf484489b37841ceebdeb3.apm.us-central1.gcp.cloud.es.io:443',
+    'SECRET_TOKEN': 'bMokHCGAKV9fkeaGG0',
+    'DEBUG': True
+    # Optional: 'ENVIRONMENT': 'development',
+}
+
+apm = ElasticAPM(app)
 
 # Elasticsearch connection
 es = Elasticsearch(
@@ -14,12 +26,23 @@ es = Elasticsearch(
     api_key="alNvUWFaWUJpd01WVUl2YUJ3eEs6TE5Hb1pVR0hSbXlMN3gyVU1Ea2JLUQ=="
 )
 
+# Health check route
+@app.route('/')
+def health_check():
+    return jsonify({"status": "healthy"}), 200
+
+@app.route('/test_apm')
+def test_apm():
+    apm.capture_message('APM test message from /test_apm')
+    return jsonify({"status": "APM test sent!"})
+
+# ELSER search route
 @app.route('/elser_search', methods=['GET', 'POST'])
-def search():
+def elser_search():
     results = []
     total = 0
     page = int(request.args.get('page', 1))
-    size = 10  # Results per page
+    size = 10
     total_pages = 0
 
     if request.method == 'POST':
@@ -79,4 +102,4 @@ def search():
     )
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=False)

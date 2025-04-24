@@ -14,7 +14,6 @@ Github:
 https://github.com/elastic/search-ui
 
 
-
 Manual changes made in `es_crawler_8_17_5/app-search-reference-ui-react-master/node_modules/@elastic/react-search-ui-views/lib/index.mjs` because of the patch issue where, it was pointing to `en_US` instead of `en_US.js`: 
 
 ```
@@ -24,3 +23,4 @@ import RCPagination from "rc-pagination";
 import enUsLocale from "rc-pagination/lib/locale/en_US.js";
 function Paging(_a) {
 ```
+
