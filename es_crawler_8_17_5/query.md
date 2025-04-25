@@ -314,3 +314,106 @@ POST search-testing-v7/_search
   }
 }
 ```
+
+#### Multi-match query with elser and BM25:
+
+```
+POST search-testing-v7/_search
+{
+  "size": 2,
+  "_source": ["title", "directions", "ingredients", "url", "image"],
+  "query": {
+    "bool": {
+      "should": [
+        {
+          "sparse_vector": {
+            "field": "ml.inference.directions_expanded.predicted_value",
+            "inference_id": ".elser_model_2_linux-x86_64",
+            "query": "pizza mozzarella",
+            "boost": 1
+          }
+        },
+        {
+          "multi_match": {
+            "query": "pizza mozzarella",
+            "fields": ["title", "directions", "ingredients"],
+            "boost": 4
+          }
+        }
+      ]
+    }
+  }
+}
+```
+##### Expected Output
+
+```
+{
+  "took": 70,
+  "timed_out": false,
+  "_shards": {
+    "total": 2,
+    "successful": 2,
+    "skipped": 0,
+    "failed": 0
+  },
+  "hits": {
+    "total": {
+      "value": 6125,
+      "relation": "eq"
+    },
+    "max_score": 73.655495,
+    "hits": [
+      {
+        "_index": "search-testing-v7",
+        "_id": "680ba89f924feb1a98d899b2",
+        "_score": 73.655495,
+        "_ignored": [
+          "body_content.enum"
+        ],
+        "_source": {
+          "title": "Artichoke, Pesto &amp; Sun-Dried Tomato Pizza With Three Cheeses Recipe - Food.com",
+          "ingredients": [
+            "12 inches pizza dough",
+            "1 cup mozzarella cheese , shredded",
+            "1 ⁄ 2 cup parmesan cheese , shredded",
+            "1 -2 chicken breast , grilled & sliced",
+            "1 (14 ounce) can artichoke hearts , well-drained & quartered",
+            "1 ⁄ 3 cup sun-dried tomato , chopped",
+            "1 ⁄ 4 cup ricotta cheese",
+            "1 ⁄ 2 tablespoon red pepper flakes (optional)",
+            "1 ⁄ 4 cup basil pesto"
+          ],
+          "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/50/10/79/picsiGjXk.jpg",
+          "url": "https://www.food.com/recipe/artichoke-pesto-sun-dried-tomato-pizza-with-three-cheeses-501079",
+          "directions": "Preheat oven to 450. Prepare your pizza: Top the crust with mozzarella, Parmesan, chicken, artichoke hearts, and sun-dried tomatoes, in that order. Dollop the ricotta cheese all over the pizza (I usually do 1/2 teaspoon size balls). Sprinkle pizza with red pepper flakes, if using. Bake for 8-12 minutes, or until cheese is melted and pizza is warm (or however long your pizza dough package recommends). Remove pizza from oven and drizzle with little dollops of pesto sauce. Serve."
+        }
+      },
+      {
+        "_index": "search-testing-v7",
+        "_id": "680ba80b924feb8a1fd754ef",
+        "_score": 73.115364,
+        "_ignored": [
+          "body_content.enum"
+        ],
+        "_source": {
+          "title": "Queen Margherita Pizza Recipe - Food.com",
+          "ingredients": [
+            "1 pizza dough, prepared but not baked (I suggest Easy Peezy Pizza Dough (Bread Machine Pizza Dough) )",
+            "Toppings",
+            "11 ounces fresh imported mozzarella cheese",
+            "1 lb firm ripe tomatoes",
+            "3 tablespoons extra virgin olive oil",
+            "8 -10 fresh basil leaves , cut into thin ribbons (NOT dried)",
+            "2 tablespoons freshly grated imported parmesan cheese",
+            "salt"
+          ],
+          "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/14/71/46/picryl1wM.jpg",
+          "url": "https://www.food.com/recipe/queen-margherita-pizza-147146",
+          "directions": "Make pizza dough according to directions up until the point where the dough is proofed and is ready to be cooked. If your mozzarella cheese is very fresh, slice up and set on paper towels first for any whey to absorb then proceed with recipe. Peel the tomatoes by plunging into boiling water for about 15 seconds. Remove peel, cut into thin slices, remove seeds and drain in a colander. Preheat oven to 425 degrees. Lightly oil a round pizza tray* with olive oil. Roll out the pizza dough into a thin, supple sheet and place in the prepared pizza pan. Brush the surface of the dough with olive oil, cover with thin slices of Mozzarella. Scatter on half of the tomato slices, then the Parmesan. Arrange the remaining tomato slices on top. *NOTE: a heavier pizza tray is preferable for best baking results. Lightly salt the tomatoes, then drizzle a little bit of olive oil all over the top. Bake 15-20 minutes. It may be necessary to turn pizza pan around at the half way mark for even browning. Garnish the fresh basil ribbons on top of the pizza just before serving."
+        }
+      }
+    ]
+  }
+}
+```
