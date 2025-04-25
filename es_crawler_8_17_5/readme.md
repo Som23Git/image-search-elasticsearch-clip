@@ -1,6 +1,18 @@
 ### ES Crawler 8.17.5
 
 
+To do:
+
+- [ ] Crawl the food.com site with the custom fields - directions and ingredients, want to run the image search(still pending)
+- [ ] Create a text expansion query with the ELSER model
+- [ ] Associate it with the Bootstrap UI
+- [ ] Run a KNN Search query
+- [ ] RRF Search query
+- [ ] APM Application
+- [ ] dockerize
+
+Search application client - https://github.com/elastic/search-application-client?tab=readme-ov-file#boilerplate-template
+
 Reference Documents:
 
 Search UI:
