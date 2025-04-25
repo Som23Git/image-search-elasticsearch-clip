@@ -13,6 +13,14 @@ Github:
 
 https://github.com/elastic/search-ui
 
+Problem statements of using Lexical and Semantic Search:
+
+https://www.elastic.co/search-labs/blog/semantic-search-elasticsearch-ecommerce
+
+Very important:
+
+https://www.elastic.co/search-labs/tutorials/search-tutorial/welcome
+
 
 Manual changes made in `es_crawler_8_17_5/app-search-reference-ui-react-master/node_modules/@elastic/react-search-ui-views/lib/index.mjs` because of the patch issue where, it was pointing to `en_US` instead of `en_US.js`: 
 
