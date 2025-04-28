@@ -75,6 +75,7 @@ POST {index_name}/_search
 
   (No images in the output.)
 <br>
+
 - **Output Example:**
 
   ![Text Expansion App Output](static/text_expansion_app.beta.search.png)
