@@ -149,7 +149,8 @@ POST {index_name}/_update/680bc0ed924febf627fc524d
 }
 ```
 
-> [!NOTE] The above **query_vector(truncated)** i.e. 512-dimensional embeddings is of the image: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/20/42/51/picIDgjux.jpg
+> [!NOTE] 
+> The above **query_vector(truncated)** i.e. 512-dimensional embeddings is of the image: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/20/42/51/picIDgjux.jpg
 
 ---
 
