@@ -1,0 +1,18 @@
+# config.py.example
+
+# Elasticsearch settings
+ELASTIC_CLOUD_URL = "https://your-elasticsearch-url"
+ELASTIC_API_KEY = "your-api-key"
+ELASTIC_INDEX = "index_name"
+ELASTIC_CLOUD_ID = "deploymentname:base64encodedvalues"
+
+# Elasticsearch Search App 
+SEARCH_APPLICATION_NAME = "your-search-app"
+
+# ELSER model - static value(as of 28th April, 2025)
+ELSER_MODEL_ID = ".elser_model_2_linux-x86_64"
+
+# Elastic APM settings
+APM_SERVICE_NAME = "recipe-search-app"
+APM_SERVER_URL = "https://your-apm-server"
+APM_SECRET_TOKEN = "your-apm-secret"

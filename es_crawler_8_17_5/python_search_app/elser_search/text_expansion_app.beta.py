@@ -1,32 +1,33 @@
+# This is a search application which I created to use Elser Search 
+# directly using the querying the search-testing-v7 index directly
+
 from flask import Flask, request, render_template, jsonify
 from elasticsearch import Elasticsearch
-import logging
 from math import ceil
 from elasticapm.contrib.flask import ElasticAPM
 
-app = Flask(__name__)
+import logging
+import config  
 
-# Enable Elasticsearch debug logs
+app = Flask(__name__)
 logging.basicConfig(level=logging.DEBUG)
 
 # Elastic APM configuration
 app.config['ELASTIC_APM'] = {
-    'SERVICE_NAME': 'recipe-search-app',
-    'SERVER_URL': 'https://1cf8e211c1bf484489b37841ceebdeb3.apm.us-central1.gcp.cloud.es.io:443',
-    'SECRET_TOKEN': 'bMokHCGAKV9fkeaGG0',
+    'SERVICE_NAME': config.APM_SERVICE_NAME,
+    'SERVER_URL': config.APM_SERVER_URL,
+    'SECRET_TOKEN': config.APM_SECRET_TOKEN,
     'DEBUG': True
-    # Optional: 'ENVIRONMENT': 'development',
 }
-
 apm = ElasticAPM(app)
 
 # Elasticsearch connection
 es = Elasticsearch(
-    cloud_id="elasticTestingDeployment:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvOjQ0MyQ1ZWFjZDhmNTk0M2U0OTAyYWZlOTcyYzI0MGYwOGJlMSRlOWExZGU1NWExZjQ0YmJlOTQ5YmQxZjIwZTVjY2RhYQ==",
-    api_key="alNvUWFaWUJpd01WVUl2YUJ3eEs6TE5Hb1pVR0hSbXlMN3gyVU1Ea2JLUQ=="
+    cloud_id=config.ELASTIC_CLOUD_ID,
+    api_key=config.ELASTIC_API_KEY
 )
 
-# Health check route
+# Health check
 @app.route('/')
 def health_check():
     return jsonify({"status": "healthy"}), 200
@@ -36,7 +37,6 @@ def test_apm():
     apm.capture_message('APM test message from /test_apm')
     return jsonify({"status": "APM test sent!"})
 
-# ELSER search route
 @app.route('/elser_search', methods=['GET', 'POST'])
 def elser_search():
     results = []
@@ -58,7 +58,7 @@ def elser_search():
                         {
                             "text_expansion": {
                                 "ml.inference.directions_expanded.predicted_value": {
-                                    "model_id": ".elser_model_2_linux-x86_64",
+                                    "model_id": config.ELSER_MODEL_ID,
                                     "model_text": search_term
                                 }
                             }
@@ -71,30 +71,25 @@ def elser_search():
 
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "ApiKey alNvUWFaWUJpd01WVUl2YUJ3eEs6TE5Hb1pVR0hSbXlMN3gyVU1Ea2JLUQ=="
+            "Authorization": f"ApiKey {config.ELASTIC_API_KEY}"
         }
 
         status, response_body = es.transport.perform_request(
             "POST",
-            "/search-testing-v4/_search",
+            f"/{config.ELASTIC_INDEX}/_search",
             headers=headers,
             body=query
         )
 
-        print("Response Body:", response_body)
-
         total = response_body['hits']['total']['value']
         total_pages = ceil(total / size)
         results = [
-            {
-                **hit['_source'],
-                '_score': hit['_score']
-            }
+            {**hit['_source'], '_score': hit['_score']}
             for hit in response_body['hits']['hits']
         ]
 
     return render_template(
-        'search.html',
+        'search.beta.html',
         results=results,
         total=total,
         page=page,
