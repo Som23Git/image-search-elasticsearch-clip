@@ -18,12 +18,23 @@ This project demonstrates how to build a **production-grade search application**
 - [x] Implement **text expansion (deprecated)** or **sparse vector queries** with **ELSER**.
 - [x] Integrate with **Bootstrap UI**.
 - [x] Implement **KNN search** for image embeddings.
-- [ ] Implement **RRF (Reciprocal Rank Fusion)** query.
 - [x] Integrate with **Elastic APM**.
+- [x] Integrate **RUM (Real User Monitoring)**.
+
+### Work In Progress
+
+- [ ] Pagination
+
+### Plan to Scale
+
 - [ ] **Dockerize** the application.
-- [ ] Integrate **RUM (Real User Monitoring)**.
+
+### Enhancements
+
+- [ ] Implement **RRF (Reciprocal Rank Fusion)** query.
 - [ ] Add **faceted search**.
 - [ ] Provide **Postman collection** for API testing.
+- [ ] Using **Hugging Face Inference API** integration(need Hugging Face instance/endpoint which is costly)
 
 ---
 
@@ -43,7 +54,7 @@ This project demonstrates how to build a **production-grade search application**
 - **Flask** (Python)
 - **Bootstrap** (UI)
 - **Elastic APM**
-- **Docker**
+- **Docker** (Work in Progress)
 
 ---
 
@@ -107,7 +118,7 @@ GET _application/search_application/recipe_search_app
 PUT _application/search_application/recipe_search_app
 ```
 
-```json
+```
 {
   "indices": ["search-testing-v7"],
   "template": {
@@ -151,7 +162,7 @@ GET _application/search_application/image_search_app
 <details>
 <summary>Example Output</summary>
 
-```json
+```
 {
   "name": "image_search_app",
   "indices": ["search-testing-v7"],
@@ -179,7 +190,7 @@ GET _application/search_application/image_search_app
 PUT _application/search_application/image_search_app
 ```
 
-```json
+```
 {
   "indices": ["search-testing-v7"],
   "template": {
