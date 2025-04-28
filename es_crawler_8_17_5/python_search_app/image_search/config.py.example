@@ -1,0 +1,15 @@
+# config.py.example
+
+ELASTIC_URL = "https://your-elasticsearch-url"
+ELASTIC_API_KEY = "your-api-key"
+INDEX_NAME = "your-index-name"
+
+IMAGE_SEARCH_TEMPLATE = "image_search_template"
+
+CLIP_MODEL_NAME = "openai/clip-vit-base-patch32"
+
+KNN_K = 8
+KNN_NUM_CANDIDATES = 50
+KNN_FIELDS = ["title", "directions", "ingredients", "body_content"]
+
+EXAMPLE_IMAGE_URL = "https://your-image-url"

@@ -1,0 +1,101 @@
+# known issue as the search application cannot process the decimal values provided in the query, 
+# in this case, it is query vector is in decimal values. Check below for more details on the issue.
+
+from flask import Flask
+from elasticsearch import Elasticsearch
+from PIL import Image
+from transformers import CLIPProcessor, CLIPModel
+from io import BytesIO
+from pprint import pprint
+
+import config
+import requests
+import numpy as np
+import torch
+import json
+
+# Flask app
+app = Flask(__name__)
+
+# Elasticsearch client
+es = Elasticsearch(
+    config.ELASTIC_URL,
+    api_key=config.ELASTIC_API_KEY
+)
+
+# CLIP model setup
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model = CLIPModel.from_pretrained(config.CLIP_MODEL_NAME).to(device)
+processor = CLIPProcessor.from_pretrained(config.CLIP_MODEL_NAME)
+
+def generate_embedding(image_url):
+    try:
+        response = requests.get(image_url)
+        response.raise_for_status()
+
+        image = Image.open(BytesIO(response.content)).convert("RGB")
+        inputs = processor(images=image, return_tensors="pt").to(device)
+
+        with torch.no_grad():
+            outputs = model.get_image_features(**inputs)
+
+        embedding = outputs / outputs.norm(p=2, dim=-1, keepdim=True)
+        embedding_np = embedding.cpu().numpy().flatten()
+
+        print(f"Embedding generated with shape: {embedding_np.shape}")
+        print("First 10 embedding values:", embedding_np[:10])  # print only first few for clarity
+
+        return embedding_np.tolist()
+
+    except Exception as e:
+        print(f"Error generating embedding: {str(e)}")
+        return None
+
+# known bug: https://github.com/elastic/elasticsearch/issues/116246
+# https://discuss.elastic.co/t/search-application-mustache-template-issue-when-passing-floats-vs-integers/376062/2
+# "type": "null_pointer_exception",
+# "reason": """Cannot invoke "com.fasterxml.jackson.core.JsonLocation.getLineNr()" because "loc" is null"""
+def search_image(image_url):
+    vector = generate_embedding(image_url)
+
+    if vector is None:
+        print("Skipping search due to embedding error.")
+        return
+
+    if len(vector) != 512:
+        print(f"Embedding is not 512 dimensions: {len(vector)}")
+        return
+
+    print("Embedding is 512 dimensions.")
+    print(vector)
+    print("Searching similar images in Elasticsearch...")
+
+    try:
+        # Perform the search using the Mustache template
+        response = es.transport.perform_request(
+            "POST",
+            "/_application/search_application/image_search_app/_search",
+            body={
+                "params": {
+                    "knn_field": config.KNN_FIELD,
+                    "query_vector": vector,
+                    "k": config.KNN_K,
+                    "num_candidates": config.KNN_NUM_CANDIDATES,
+                    "fields": config.KNN_FIELDS
+                }
+            },
+            headers={
+                "Content-Type": "application/json"
+            }
+        )
+
+        print("Raw Elasticsearch response:")
+        print(json.dumps(response.body, indent=2))
+
+    except Exception as e:
+        print(f"Error querying Elasticsearch: {str(e)}")
+
+# Run the search
+if __name__ == '__main__':
+    search_image(config.EXAMPLE_IMAGE_URL)
+    app.run(debug=True)
