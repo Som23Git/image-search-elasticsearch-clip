@@ -99,7 +99,7 @@ PUT _application/search_application/image_search_app
 
 - Use `search template API` directly - Refer [Search Template API documentation](https://www.elastic.co/docs/solutions/search/search-templates#create-search-template)
 
-```json
+```
 PUT _scripts/image_search_template
 {
   "script": {
@@ -149,7 +149,7 @@ POST {index_name}/_update/680bc0ed924febf627fc524d
 }
 ```
 
-[!NOTE] The above **query_vector(truncated)** i.e. 512-dimensional embeddings is of the image: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/20/42/51/picIDgjux.jpg
+> [!NOTE] The above **query_vector(truncated)** i.e. 512-dimensional embeddings is of the image: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/20/42/51/picIDgjux.jpg
 
 ---
 
@@ -259,7 +259,7 @@ Elasticsearch response (filtered fields):
 
 ## Elasticsearch Search Template Example
 
-```json
+```
 {
   "script": {
     "source": """
