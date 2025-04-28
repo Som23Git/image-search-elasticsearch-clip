@@ -164,9 +164,19 @@ Open [http://127.0.0.1:5000/](http://127.0.0.1:5000/) in your browser.
 - Integrated with Flask via `elastic-apm` Python agent.
 - Monitors transactions, errors, response times.
 
+### APM Services List:
+
+![APM Services List](static/images/apm_services_list.png)
+
+
 ### Frontend (RUM):
 - Configured in the HTML templates (`home.html`, etc.).
 - Captures frontend metrics (page load times, errors).
+
+### RUM Dashboard:
+
+![RUM Dashboard](static/images/rum_dashboard.png)
+
 
 Example in `home.html`:
 ```html
