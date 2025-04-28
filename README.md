@@ -14,7 +14,7 @@ This repository contains various projects and experiments for **search applicati
 
 For the **Python Search Applications**, see:
 
-- [`python_search_app/`](./python_search_app)
+- [`python_search_app/`](./es_crawler_8_17_5/python_search_app/)
 
 Each subdirectory includes its own `README.md` with setup and usage instructions.
 
