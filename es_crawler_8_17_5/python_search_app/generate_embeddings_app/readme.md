@@ -51,6 +51,6 @@ Visit: **http://127.0.0.1:5001**
 
 ---
 
-## 📝 License
+## License
 
 **MIT License**. See [LICENSE](LICENSE) for details.
