@@ -1,6 +1,198 @@
+# Image Search using KNN and Elasticsearch(CLI-Based Approach and NO Search UI)
 
-** IN CLI - Expected Output for image_search/image_search_app.beta.py**
-where we are passing the image as a static variable in the code itself
+This project demonstrates how to perform **image similarity search** in **Elasticsearch** using **CLIP embeddings** and **KNN Search**. It leverages:
+- [Hugging Face CLIP Model](https://huggingface.co/openai/clip-vit-base-patch32) for image feature extraction.
+- Elasticsearch's [KNN Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html) with [Search Templates](https://www.elastic.co/docs/solutions/search/search-templates).
+
+---
+
+## Prerequisites
+
+Before running the image search application, ensure the following:
+
+- **Clean Index Setup**:  
+  Your Elasticsearch index should have the proper mapping configured, especially for **512-dimensional dense vectors** required for image embeddings. These vectors are indexed into the `image_embedding` field using the **CLIP model**.
+
+- **Verify Index Mapping**:  
+  Use the following API call to check the mapping of your index :
+
+  ```bash
+  GET {index_name}/_mapping
+  ```
+
+- **Key Fields for Image Search**:
+  - `image_embedding`: A **dense_vector** field with **512 dimensions** used for KNN (k-Nearest Neighbors) search.  
+  - Other important fields include: `title`, `directions`, `ingredients`, and `image`, which store the recipe details and images.
+
+### Sample Mapping for `image_embedding` field:
+
+```json
+"image_embedding": {
+  "type": "dense_vector",
+  "dims": 512,
+  "index": true
+}
+```
+
+- **Embedding Generation**:  
+  Use the **CLIP model** (`openai/clip-vit-base-patch32`) to generate **512-dimensional embeddings** for your images. The directory `generate_embeddings_app` includes the necessary code to compute these embeddings and index them into Elasticsearch.
+
+## How It Works
+
+1. **CLIP Model** generates a 512-dimensional vector embedding from an image and it is lighter and faster.
+2. The embedding is passed to **Elasticsearch KNN Search**, querying for similar images.
+3. The search uses a **Mustache template** to structure the query.
+
+---
+
+## Project Structure
+
+```
+image_search/
+├── image_search_app.py       # Final search app (asks user for image URL)
+├── image_search_app.beta.py  # Static image URL for testing
+├── image_search_app.bug      # Bug (Elasticsearch search application issue)
+├── config.py                 # configuration variables
+├── config.py.example         # Example config template (without secrets)
+└── README.md                            
+```
+As this is a CLI-Based approach, there's no need for `templates/` and `static/` assets.
+
+---
+## **Issue in Supporting Search Application**
+
+### **Search Application Template Usage**
+```
+PUT _application/search_application/image_search_app
+{
+  "indices": [
+    "{index_name}"
+  ],
+  "template": {
+    "script": {
+      "lang": "mustache",
+      "source": """
+      {
+          "knn": {
+            "field": "{{knn_field}}",
+            "query_vector": {{#toJson}}query_vector{{/toJson}},
+            "k": "{{k}}",
+            "num_candidates": {{num_candidates}}
+          },
+          "fields": {{#toJson}}fields{{/toJson}}
+      }
+      """,
+      "params": {
+        "knn_field": "image_embedding",
+        "query_vector": [],
+        "k": 8,
+        "num_candidates": 50,
+        "fields": ["title", "directions","ingredients","body_content"]
+      }
+    }
+  }
+}
+```
+<br>
+
+### **Workaround**
+
+- Use `search template API` directly - Refer [Search Template API documentation](https://www.elastic.co/docs/solutions/search/search-templates#create-search-template)
+
+```json
+PUT _scripts/image_search_template
+{
+  "script": {
+    "lang": "mustache",
+    "source": """
+    {
+      "query": {
+        "knn": {
+          "field": "{{knn_field}}",
+          "query_vector": {{#toJson}}query_vector{{/toJson}},
+          "k": {{k}},
+          "num_candidates": {{num_candidates}}
+        }
+      },
+      "fields": {{#toJson}}fields{{/toJson}}
+    }
+    """
+  }
+}
+```
+- Use `render_template API` to **test** the added `search_template`:
+
+```
+POST _render/template
+{
+  "id": "image_search_template",
+  "params": {
+    "knn_field": "image_embedding",
+    "query_vector": [0.01658179610967636, 0.03511231020092964, -0.01910591311752796, 0.04759567975997925, 0.007392457220703363, 0.041482552886009216, -0.00506657175719738, -0.008704421110451221, -0.0006646860274486244, -0.0005833572940900922, -0.012989193201065063, -0.020764362066984177, 0.015698278322815895, 0.005400165915489197, -0.006252847611904144, -0.018443984910845757, 0.13550254702568054, 0.025229912251234055, 0.023934118449687958, -0.0440627858042717, -0.12679260969161987, 0.014905421994626522, -0.007434233091771603, -0.04142316058278084, 0.02410072274506092, 0.013529140502214432, -0.023162899538874626, 0.0035687473136931658, 0.01589450240135193, -0.022737817838788033, 0.04851134493947029, -0.007447127252817154, 0.04024679958820343, -0.0015348338056355715, ..., 0.025384193286299706, -0.014990167692303658],
+    "k": 8,  
+    "num_candidates": 50,  
+    "fields": ["title", "directions", "ingredients", "body_content"]
+  }
+}
+```
+
+### Quick Tip
+
+- To add the embeddings and test it immediately, manually create the `query_vector` and update a document in the `{index_name}` and, then use the same `query_vector` to search in the `render_template`.
+
+```
+POST {index_name}/_update/680bc0ed924febf627fc524d
+{
+  "doc": {
+    "image_embedding": [0.01658179610967636, 0.03511231020092964, -0.01910591311752796, 0.04759567975997925, 0.007392457220703363, 0.041482552886009216, -0.00506657175719738, -0.008704421110451221, -0.0006646860274486244, -0.0005833572940900922, -0.012989193201065063, -0.020764362066984177, 0.015698278322815895, 0.005400165915489197, -0.006252847611904144, -0.018443984910845757, 0.13550254702568054, 0.025229912251234055, 0.023934118449687958, -0.0440627858042717, -0.12679260969161987, 0.014905421994626522, -0.007434233091771603, -0.04142316058278084, 0.02410072274506092, 0.013529140502214432, -0.023162899538874626, 0.0035687473136931658, 0.01589450240135193, -0.022737817838788033, 0.04851134493947029, -0.007447127252817154, 0.04024679958820343, -0.0015348338056355715, ..., 0.025384193286299706, -0.014990167692303658]
+  }
+}
+```
+
+[!NOTE] The above **query_vector(truncated)** i.e. 512-dimensional embeddings is of the image: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/20/42/51/picIDgjux.jpg
+
+---
+
+## How to Use
+
+### 1. **Setup**
+
+Install dependencies:
+
+```bash
+pip install flask elasticsearch torch torchvision transformers pillow requests numpy
+```
+
+Configure your **Elasticsearch Cloud URL**, **API key**, and **search settings** in `config.py`:
+
+```python
+# config.py
+
+ELASTIC_URL = "https://your-elasticsearch-url"
+ELASTIC_API_KEY = "your-api-key"
+INDEX_NAME = "search-testing-v7"
+IMAGE_SEARCH_TEMPLATE = "image_search_template"
+
+CLIP_MODEL_NAME = "openai/clip-vit-base-patch32"
+
+KNN_FIELD = "image_embedding"
+KNN_K = 8
+KNN_NUM_CANDIDATES = 50
+KNN_FIELDS = ["title", "directions", "ingredients", "body_content"]
+```
+
+---
+
+### 2. **Running with a Static Image (Beta)**
+
+For **quick testing** using a hardcoded image URL:
+
+```bash
+python3 image_search_app.beta.py
+```
+
+**Expected CLI Output:**
+
 ```json
 {
     "_index": "search-testing-v7",
@@ -28,15 +220,17 @@ where we are passing the image as a static variable in the code itself
 }
 ```
 
-## Expected output for image_search_app.py:
+---
 
-Where here we are passing the image as an input variable and not in the code:
+### 3. **Running with User Input**
 
-when asking for: Please enter the image URL for searching: enter this image: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/35/16/31/TW8kFVRNTwKckUevzMv7_sea-bass-recipe-5393.jpg
+```bash
+python3 image_search_app.py
+```
 
-Output in the terminal:
-image_search % python3 image_search_app.py
-Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+#### Example interaction:
+
+```
 Please enter the image URL for searching: https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/35/16/31/TW8kFVRNTwKckUevzMv7_sea-bass-recipe-5393.jpg
 Embedding generated with shape: (512,)
 First 10 embedding values: [ 0.00827968  0.03805021 -0.02145038  0.02773996  0.0163618   0.02976616
@@ -46,145 +240,64 @@ Searching similar images in Elasticsearch...
 Elasticsearch response (filtered fields):
 {
   "title": "Simple Oven-Baked Sea Bass Recipe - Food.com",
-  "directions": "Preheat oven to 450F\u00b0. In a cup, mix garlic, olive oil, salt, and black pepper. Place fish in a shallow glass or ceramic baking dish. Rub fish with oil mixture. (Optional) Pour wine over fish. Bake fish, uncovered, for 15 minutes; then sprinkle with parsley or Italian seasoning and continue to bake for 5 more minutes (or until the thickest part of the fish flakes easily). Drizzle remaining pan juices over fish and garnish with lemon wedges. Enjoy!",
+  "directions": "Preheat oven to 450°F...",
   "ingredients": [
     "1 lb sea bass (cleaned and scaled)",
     "3 garlic cloves , minced or crushed",
-    "1 tablespoon extra virgin olive oil",
-    "1 tablespoon italian seasoning or 1 tablespoon fresh parsley leaves",
-    "2 teaspoons fresh coarse ground black pepper",
-    "1 teaspoon salt",
-    "2 lemon wedges",
-    "1 \u2044 3 cup white wine vinegar (optional) or 1/3 cup white wine (optional)"
+    "... (other ingredients)"
   ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/35/16/31/TW8kFVRNTwKckUevzMv7_sea-bass-recipe-5393.jpg",
+  "image": "https://img.sndimg.com/food/image/upload/q_92,...sea-bass-recipe-5393.jpg",
   "score": 1.0011063
 }
+...
+...
+```
+
+> **Note:** This is only the **filtered fields**: `title`, `directions`, `ingredients`, `image`, and `score`.
+
+---
+
+## Elasticsearch Search Template Example
+
+```json
 {
-  "title": "Best Fajitas Recipe - Food.com",
-  "directions": "Slice steak into thin strips. In bowl, mix together 1 tablespoons olive oil, lime juice, garlic, chili powder, cumin, hot pepper flakes, black pepper & salt. Add beef strips and stir to coat, set aside. Wrap tortillas in foil and place in 350\u00b0 oven for 5-10 minutes or until heated through. Cut onions in half lengthwise and slice into strips, cut your peppers into strips. In large non stick skillet over medium high heat, heat remaining tablespoons of olive oil. Add onions & peppers stirring for 3-4 minutes, until softened; transfer to a bowl and set aside. Add beef to skillet, cook, stirring for 3-4 minutes or until they lose their red color. Return onions and peppers to skillet; stir for about one minute. To serve, spoon a portion of the beef mixture down the centre of each tortilla, top with your desired toppings , fold bottom of tortilla up over filling, fold the sides in, overlapping.",
-  "ingredients": [
-    "3 \u2044 4 lb top sirloin steak",
-    "2 tablespoons olive oil",
-    "1 tablespoon lime juice",
-    "1 garlic clove , finely minced",
-    "1 \u2044 2 teaspoon chili powder",
-    "1 \u2044 2 teaspoon cumin",
-    "1 \u2044 2 teaspoon hot pepper flakes",
-    "1 \u2044 2 teaspoon black pepper",
-    "1 \u2044 2 teaspoon salt",
-    "8 flour tortillas (8 inch/20 cm)",
-    "1 -2 onion , we usually use approx. 1-2 depending on size (however much you like,enough to make a good mix with the peppers)",
-    "2 small sweet peppers , of your choice (green, red, or yellow)",
-    "Toppings",
-    "salsa",
-    "sour cream",
-    "shredded cheese",
-    "chopped tomato"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/63/78/6/NrPa79ZESEOqMlMoFDos_fajitas-3.jpg",
-  "score": 0.9296875
+  "script": {
+    "source": """
+    {
+      "knn": {
+        "field": "{{knn_field}}",
+        "query_vector": {{#toJson}}query_vector{{/toJson}},
+        "k": "{{k}}",
+        "num_candidates": {{num_candidates}}
+      },
+      "fields": {{#toJson}}fields{{/toJson}}
+    }
+    """,
+    "lang": "mustache",
+    "params": {
+      "knn_field": "image_embedding",
+      "query_vector": [],
+      "k": 8,
+      "num_candidates": 50,
+      "fields": ["title", "directions", "ingredients", "body_content"]
+    }
+  }
 }
-{
-  "title": "Ww Grilled Salmon With Teriyaki Sauce - 4 Points Recipe - Food.com",
-  "directions": "Combine first 7 ingredients in a shallow dish; stir well. Add fish; cover, and marinate in refrigerator 30 minutes. Coat grill rack with cooking spray; place on grill over medium-hot coals (350-400 degrees). Remove fish from marinade; reserve marinade. Place fish on grill rack or in a grill basket coated with cooking spray; grill, uncovered, 5 to 7 minutes on each side or until fish flakes easily when tested with a fork. Transfer fish to a serving platter, and keep warm. Place reserved marinade in a small saucepan; bring to a boil. Boil 5 minutes or until marinade becomes thick and syrupy. Spoon over fish; serve immediately.",
-  "ingredients": [
-    "1 \u2044 4 cup dry sherry",
-    "1 \u2044 4 cup low sodium soy sauce",
-    "1 tablespoon brown sugar",
-    "1 tablespoon rice wine vinegar",
-    "1 teaspoon garlic powder",
-    "1 \u2044 2 teaspoon pepper",
-    "1 \u2044 8 teaspoon ground ginger",
-    "1 (16 ounce) skinless salmon fillet (1 inch thick)",
-    "cooking spray"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/29/39/27/Jbfdi33vReW8hK1YgfAp_0S9A8380.jpg",
-  "score": 0.9025917
-}
-{
-  "title": "Authentic Mexican Pozole Recipe - Food.com",
-  "directions": "This recipe requires a simple prep. Prepare the onion, peel the garlic, chop the onion, peel and chop the 2 garlic cloves, chop the green chilies and jalapenos if you are using them and get the hominy drained and rinsed. I boil my ancho chilies in a separate small pot for the garnish part(read below). Now you are ready to cook. Place the meat in a large saucepan and just cover with lightly salted water. Add 1/2 chopped onion, the 2 cloves peeled garlic, pepper, cumin, and oregano. Bring to a boil over medium heat, skim off any foam that rises, reduce heat, cover and simmer for 45 minutes. Remove meat and broth, reserving both. Saute the remaining chopped onion and garlic in oil until translucent. Add the remaining spices, stir for a minute. Cut the reserved pork into 1 inch cubes and add to the pan. Stir in the canned hominy, pork broth (if there is not enough pork broth, add chicken stock, I like to add it anyway for flavor, about 2-4 cups, eyeball the amount you like), green chilies and jalapenos (optional). Cook at a simmer, covered, for 45 to 60 minutes until the meat and hominy are tender. If necessary, cook for up to an additional 60 minutes until the chilies and onions are well blended into the broth. Degrease the stew, taste for salt, and serve in soup bowls. This is a delicious recipe and well worth the effort to make.   lots of lime/lemon wedges. sliced radishes. chopped cilantro. Shredded cabbage(not red). fresh/ packaged fried corn tortillas. When my ancho chilies are soft from boiling(takes about 15 minutes), then i put them in the blender with 1 1/2cups of water, 1 clove of garlic and about 2 tablespoons diced onion, and about 1 tablespoons of salt and pepper. I blend this thin, then strain it to get the liquid separated from its \"pulp\". I throw the pulp into the soup for the flavor i like but you can discard if too spicy for you. The remaining liquid you put in a serving dish for guests to add in their own bowl, if desired. Beware! It's HOT!",
-  "ingredients": [
-    "1 1 \u2044 2 lbs pork shoulder",
-    "2 garlic cloves , peeled",
-    "1 tablespoon cumin powder",
-    "1 onion , chopped",
-    "2 garlic cloves , chopped",
-    "2 tablespoons oil",
-    "1 \u2044 2 teaspoon black pepper",
-    "1 \u2044 2 teaspoon cayenne",
-    "2 tablespoons california chili powder",
-    "1 tablespoon salt",
-    "1 \u2044 4 teaspoon oregano",
-    "4 cups canned white hominy , drained and rinsed",
-    "3 -5 cups pork broth , from cooking pork shoulder",
-    "1 cup canned diced green chilis (optional)",
-    "salt",
-    "2 whole fresh jalapenos, chopped (optional)",
-    "3 whole ancho chilies , seeded and stemmed (garnish) (optional)"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/19/62/33/sobU9LjR3qh8ul37iAvw_pork-pozole-7704.jpg",
-  "score": 0.90187454
-}
-{
-  "title": "Delicious Fajita Marinade Recipe - Food.com",
-  "directions": "Combine all ingredients, mixing well. Marinade 1 1/2lbs Beef or Chicken for at least 2 hours. Cook as desired on outside grill, stovetop saute pan, or you can even cook them on the George Foreman grill.",
-  "ingredients": [
-    "1 clove garlic (minced)",
-    "1 1 \u2044 2 teaspoons salt",
-    "1 tablespoon ground cumin",
-    "1 \u2044 2 teaspoon chili powder",
-    "1 \u2044 2 teaspoon crushed red pepper flakes",
-    "2 tablespoons oil (any type works)",
-    "1 tablespoon lemon juice",
-    "1 \u2044 3 cup A.1. Original Sauce"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/10/63/71/oeoBS2vsTP2phNmhCIYM_fajita-marinade-5820.jpg",
-  "score": 0.89896774
-}
-{
-  "title": "Herb-Steamed Chilean Sea Bass Recipe - Food.com",
-  "directions": "Cut the sea bass in half horizontally. Season the inside with salt and pepper and fill the center with the chopped herbs. Reassemble the sea bass and season the outside with salt and pepper to taste. Wrap in plastic wrap. Steam the sea bass in an 8-inch, flat-bottomed steamer, covered, for 6 minutes, or until it is barely opaque. To assemble: Remove the plastic wrap. Use a very sharp knife to cut the fish into eight 2-inch wedges. Choose a flat, colorful plate to set off the dramatic form of the fish. Stand one wedge on its end and show the herb filling of the other. Garnish with fresh herbs.",
-  "ingredients": [
-    "3 \u2044 4 lb chilean sea bass fillet",
-    "salt & fresh ground pepper, to taste",
-    "3 tablespoons tarragon , chopped",
-    "3 tablespoons dill",
-    "3 tablespoons flat leaf parsley",
-    "1 sprig fresh tarragon , for garnish",
-    "1 sprig fresh dill (to garnish)",
-    "1 sprig flat leaf parsley (to garnish)"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/30/77/24/picmog6q3.jpg",
-  "score": 0.89424133
-}
-{
-  "title": "Marinade for Flank Steak Recipe - Food.com",
-  "directions": "Mix oil, Worcestershire sauce, soy sauce, vinegar, garlic, mustard,lemon juice and parsley together in a large zip lock bag. Marinade beef over night.",
-  "ingredients": [
-    "3 \u2044 4 cup oil",
-    "2 tablespoons Worcestershire sauce",
-    "1 \u2044 2 cup soy sauce",
-    "1 \u2044 4 cup red wine vinegar",
-    "2 cloves garlic , minced",
-    "1 teaspoon dry mustard",
-    "2 tablespoons lemon juice",
-    "1 teaspoon parsley"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/42/31/6/EbyFkkfCSEi1eRWUBm7C_SteakMarinade3.jpg",
-  "score": 0.89297485
-}
-{
-  "title": "Vegan Bacon Recipe - Food.com",
-  "directions": "Fry tofu strips on low heat until they are crispy on the outside. The best way to do this is to lay them in the pan in the oil and let them sit for at least 10 minutes, simmering. They should turn easily after that. Turn them and give them another 10 minutes on the other side. Mix the soya sauce with the liquid smoke first, then take the pan off the heat. Pour the liquid smoke/soya sauce into the pan and stir the tofu so all sides are coated. Sprinkle the yeast over all, stir some more, over the heat, until the liquid is gone and the tofu is covered with sticky yeast.",
-  "ingredients": [
-    "1 lb firm tofu , cut into strips shaped like bacon",
-    "2 tablespoons nutritional yeast",
-    "2 tablespoons soya sauce",
-    "1 teaspoon liquid smoke",
-    "1 tablespoon oil, something neutral, not olive oil"
-  ],
-  "image": "https://img.sndimg.com/food/image/upload/q_92,fl_progressive,w_1200,c_scale/v1/img/recipes/14/88/99/LlkHd9qlTpqOlaaYdJjy_0S9A6887.jpg",
-  "score": 0.89085007
-}
+```
+
+---
+
+## Known Issues
+
+- Refer to [Elasticsearch Issue #116246](https://github.com/elastic/elasticsearch/issues/116246):  
+  **Search Application Template: use decimal value as param triggers error #116246**. Check the code here: `image_search/image_search_app.bug`
+
+---
+
+## References
+
+- [CLIP Model](https://huggingface.co/openai/clip-vit-base-patch32)
+- [Elasticsearch KNN Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/knn-search.html)
+- [Search Templates](https://www.elastic.co/docs/solutions/search/search-templates)
+
+---
