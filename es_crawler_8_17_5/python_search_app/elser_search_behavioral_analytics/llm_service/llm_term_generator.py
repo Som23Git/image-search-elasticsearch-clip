@@ -4,9 +4,20 @@ from flask import Flask, jsonify
 from transformers import pipeline
 from flask_cors import CORS
 import random
+from elasticapm.contrib.flask import ElasticAPM
+import config
 
 app = Flask(__name__)
 CORS(app)
+
+app.config['ELASTIC_APM'] = {
+    'SERVICE_NAME': config.APM_SERVICE_NAME,
+    'SERVER_URL': config.APM_SERVER_URL,
+    'SECRET_TOKEN': config.APM_SECRET_TOKEN,
+    'ENVIRONMENT': config.APM_APP_ENVIRONMENT
+}
+
+apm = ElasticAPM(app)
 
 # Predefined good terms
 hardcoded_terms = [
