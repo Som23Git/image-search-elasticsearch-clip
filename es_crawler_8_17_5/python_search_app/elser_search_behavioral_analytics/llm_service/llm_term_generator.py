@@ -11,7 +11,7 @@ CORS(app)
 # Predefined good terms
 hardcoded_terms = [
     "Recipe for pasta",
-    "How to make chicken biryani",
+    "How to make pizza",
     "Quick meal sandwich",
     "Ingredients for salad",
     "Cook spicy noodles",
