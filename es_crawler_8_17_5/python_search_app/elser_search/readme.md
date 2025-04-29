@@ -44,7 +44,7 @@ This project demonstrates **two different approaches** to **text-based recipe se
 
 - **Sparse Vector Queries**
 
-```json
+```
 POST {index_name}/_search
 {
   "_source": ["title", "directions", "ingredients", "url", "image"],
@@ -62,6 +62,8 @@ POST {index_name}/_search
 ---
 
 ### 2. **(Deprecated) Text Expansion App (No Images)**
+
+Refer here: [Deprecation details on Text Expansion Query](https://www.elastic.co/docs/reference/query-languages/query-dsl/query-dsl-text-expansion-query)
 
 - **File:** `text_expansion_app.beta.py`
 - **Description:**  
@@ -85,7 +87,7 @@ POST {index_name}/_search
 
 - **Queries**
 
-```json
+```
 POST {index_name}/_search
 {
   "_source": [
