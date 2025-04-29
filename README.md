@@ -9,6 +9,7 @@ This repository contains various projects and experiments for **search applicati
   - **`image_search/`**: Search recipes by image using CLIP embeddings and Elasticsearch kNN.
   - **`image_plus_elser_search/`**: Combines both text (ELSER) and image (CLIP) search with APM & RUM instrumentation and Bootstrap UI.
   - **`generate_embeddings_app/`**: Standalone app to generate and view CLIP image embeddings.
+  - **`elser_search_behavioral_analytics/`**:  Combines both text (ELSER) and image search with APM & RUM instrumentation and included Behavioral Analytics(for testing, it exposes a `llm_term_generator.py`)
 
 ## How to Navigate
 
