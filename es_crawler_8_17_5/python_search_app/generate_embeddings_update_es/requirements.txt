@@ -1,0 +1,7 @@
+aiohttp
+torch
+transformers
+elasticsearch
+pandas
+pillow
+tqdm
