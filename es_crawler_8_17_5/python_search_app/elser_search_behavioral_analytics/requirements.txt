@@ -1,0 +1,9 @@
+Flask
+elasticsearch
+requests
+Pillow
+transformers
+torch
+elastic-apm
+psutil
+flask-cors

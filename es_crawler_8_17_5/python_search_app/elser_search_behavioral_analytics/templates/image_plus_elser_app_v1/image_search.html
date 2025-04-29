@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Recipe Search</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@elastic/apm-rum@5.12.0/dist/bundles/elastic-apm-rum.umd.min.js" crossorigin></script>
+    <script>
+      elasticApm.init({
+        serviceName: "{{ rum_service_name }}",
+        serverUrl: "{{ rum_server_url }}",
+        environment: "{{ rum_environment }}",
+        distributedTracingOrigins: [window.location.origin],
+        logLevel: 'debug'
+      });
+    </script>  
+    <!-- Elastic Behavioral Analytics Tracker CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@elastic/behavioral-analytics-browser-tracker@2"></script>
+
+    <!-- Your custom tracking logic -->
+    <script src="{{ url_for('static', filename='js/analytics.js') }}"></script>   
+    
+</head>
+<body class="bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Recipe Search</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/elser_search">Elser Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white fw-bold" href="/image_search">Search by Image</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="container py-5">
+            <h1 class="mb-4 text-center">🍳 Recipe Search (Search by Image)</h1>
+
+            <form method="post" enctype="multipart/form-data" action="/image_search" class="mb-5">
+                <div class="mb-3">
+                    <label for="imageUpload" class="form-label">Upload an image (or)</label>
+                    <input type="file" name="image" class="form-control" accept="image/*">
+                </div>
+                <div class="mb-3">
+                    <label for="imageUrl" class="form-label">Or enter an image URL</label>
+                    <input type="url" name="image_url" class="form-control" placeholder="https://example.com/image.jpg">
+                </div>
+                <button type="submit" class="btn btn-primary">Search by Image</button>
+            </form>
+
+            <!-- Results for Image Search -->
+            {% if image_results %}
+                <h2 class="mb-4">Image Search Results</h2>
+                <div class="row">
+                    {% for r in image_results %}
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="{{ r.image }}" class="card-img-top" alt="Recipe Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ r.title }}</h5>
+                                    <p class="card-text">{{ r.directions[:100] }}...</p>
+                                    <a href="{{ r.url }}" class="btn btn-primary" target="_blank">View Recipe</a>
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">Score: {{ r._score }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% elif request.method == 'POST' %}
+                <div class="alert alert-warning mt-4" role="alert">
+                    No results found for this image. Try another one!
+                </div>
+            {% endif %}
+        </div>  
+    </div>
+
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2025 Elasticsearch Recipe Search App. MIT License.</p>
+    </footer>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

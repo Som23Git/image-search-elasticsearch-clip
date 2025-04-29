@@ -1,0 +1,31 @@
+/* General Layout */
+html, body {
+    height: 100%; /* Full viewport height */
+}
+
+body {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+}
+
+.content {
+    flex: 1; /* Take all available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+}
+
+/* Custom hover for Search by Text (btn-primary) */
+.btn-primary:hover {
+    background-color: #0a58ca; /* Darker blue */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Add a shadow */
+}
+
+/* Custom hover for Search by Image (btn-secondary) */
+.btn-secondary:hover {
+    background-color: #495057; /* Darker gray */
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
