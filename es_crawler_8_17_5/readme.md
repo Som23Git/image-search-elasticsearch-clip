@@ -23,6 +23,7 @@ This project demonstrates how to build a **production-grade search application**
 
 ### Work In Progress
 
+- [ ] Integrate **Behavioral Analytics**
 - [ ] Pagination
 
 ### Plan to Scale
@@ -41,6 +42,7 @@ This project demonstrates how to build a **production-grade search application**
 ## ✅ Current Features
 
 - [x] **APM Enabled** (Elastic APM integrated).
+- [x] **RUM Enabled** (Elastic RUM-JS integrated).
 - [x] **Sparse Vector Search** using **ELSER** (in-built).
 - [x] **Dense Vector Search** using **image embeddings** and **KNN**.
 - [x] **UI available** (Bootstrap-based).
