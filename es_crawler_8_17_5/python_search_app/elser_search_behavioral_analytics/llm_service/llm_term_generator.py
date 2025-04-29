@@ -8,24 +8,55 @@ import random
 app = Flask(__name__)
 CORS(app)
 
-# Load a very lightweight text generation model
-generator = pipeline("text-generation", model="distilgpt2")
-
-# Pre-defined prompt templates for recipe context
-prompts = [
-    "Recipe for", "How to make", "Ingredients for", "Easy recipe", "Quick meal", "Best dish", "Cook", "Food with"
+# Predefined good terms
+hardcoded_terms = [
+    "Recipe for pasta",
+    "How to make chicken biryani",
+    "Quick meal sandwich",
+    "Ingredients for salad",
+    "Cook spicy noodles",
+    "Easy recipe pancakes",
+    "Best dish butter chicken",
+    "Food with avocado toast"
 ]
 
-def generate_fake_terms(num_terms=1):
-    fake_terms = []
-    for _ in range(num_terms):
-        prompt = random.choice(prompts)
-        output = generator(prompt, max_length=10, num_return_sequences=1)[0]['generated_text']
-        # Post-process: only keep last few words to make it look like a search query
-        clean_term = output.replace(prompt, "").strip().split("\n")[0]
-        if clean_term:
-            fake_terms.append((prompt + " " + clean_term).strip())
-    return fake_terms
+def generate_fake_terms():
+    return [random.choice(hardcoded_terms)]
+
+# Load a very lightweight text generation model
+# generator = pipeline("text-generation", model="distilgpt2")
+
+# # Pre-defined prompt templates for recipe context
+# prompts = [
+#     "Recipe for", "How to make", "Ingredients for", "Easy recipe", "Quick meal", "Best dish", "Cook", "Food with"
+# ]
+
+# def generate_fake_terms():
+#     prompts = [
+#         "Recipe for", "How to make", "Ingredients for",
+#         "Easy recipe", "Quick meal", "Best dish",
+#         "Cook", "Food with"
+#     ]
+#     prompt = random.choice(prompts)
+
+#     output = generator(
+#         prompt,
+#         max_new_tokens=10,    # Only small extension
+#         num_return_sequences=1,
+#         do_sample=True,
+#         temperature=0.8,
+#         top_p=0.9
+#     )
+
+#     generated_text = output[0]['generated_text']
+
+#     # Remove the prompt from beginning to get only new text
+#     new_part = generated_text.replace(prompt, '').strip()
+
+#     # Combine cleanly
+#     search_phrase = (prompt + " " + new_part).strip()
+
+#     return [search_phrase]
 
 @app.route('/random-terms', methods=['GET'])
 def random_terms():
