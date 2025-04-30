@@ -36,6 +36,8 @@ This project demonstrates how to build a **production-grade search application**
 - [ ] Add **faceted search**.
 - [ ] Provide **Postman collection** for API testing.
 - [ ] Using **Hugging Face Inference API** integration(need Hugging Face instance/endpoint which is costly)
+- [ ] **Recipe Suggestions** using an LLM or more personalized approach
+- [ ] Support for **trackClicks**
 
 ---
 
