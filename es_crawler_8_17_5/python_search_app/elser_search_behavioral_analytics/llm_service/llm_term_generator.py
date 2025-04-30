@@ -10,6 +10,8 @@ import config
 app = Flask(__name__)
 CORS(app)
 
+port = config.EXPOSE_PORT
+
 app.config['ELASTIC_APM'] = {
     'SERVICE_NAME': config.APM_SERVICE_NAME,
     'SERVER_URL': config.APM_SERVER_URL,
@@ -75,4 +77,4 @@ def random_terms():
     return jsonify(terms)
 
 if __name__ == '__main__':
-    app.run(port=5050)
+    app.run(host='0.0.0.0',port=port)

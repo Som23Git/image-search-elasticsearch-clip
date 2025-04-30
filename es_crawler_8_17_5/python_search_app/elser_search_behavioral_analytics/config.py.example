@@ -1,0 +1,30 @@
+# === Elasticsearch Configuration ===
+ELASTIC_URL = "https://<your-elasticsearch-endpoint>"
+ELASTIC_API_KEY = "<your-base64-encoded-api-key>"
+
+# === Elasticsearch Index Name ===
+INDEX_NAME = "<your-index-name>"  
+
+# === Elasticsearch Search Application ===
+SEARCH_APPLICATION_NAME = "<your-search-application-name>"  
+IMAGE_SEARCH_TEMPLATE = "<your-image-search-template>"      
+
+# === CLIP Model Configuration ===
+CLIP_MODEL_NAME = "openai/clip-vit-base-patch32"  
+
+# === KNN Search Configuration ===
+KNN_K = 8
+KNN_NUM_CANDIDATES = 50
+KNN_SEARCH_FIELDS = ["title", "directions", "ingredients", "body_content"]
+KNN_FIELD = "image_embedding"
+
+# === Elastic APM settings ===
+APM_SERVICE_NAME = "<your-apm-service-name>"       
+APM_SERVER_URL = "https://<your-apm-endpoint>"
+APM_SECRET_TOKEN = "<your-apm-secret-token>"
+APM_APP_ENVIRONMENT = "production"                 # Or "development"
+
+# === RUM settings ===
+RUM_SERVICE_NAME = "<your-rum-service-name>"       
+RUM_SERVER_URL = "https://<your-apm-endpoint>"
+RUM_ENVIRONMENT = "production"

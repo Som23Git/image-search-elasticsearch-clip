@@ -1,0 +1,7 @@
+# Elastic APM settings
+APM_SERVICE_NAME = "llm_term_generator"
+APM_SERVER_URL = "<APM_endpoint_url>"
+APM_SECRET_TOKEN = "<secret_token>"
+APM_APP_ENVIRONMENT = "production"
+
+EXPOSE_PORT = 5050
