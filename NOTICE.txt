@@ -1,0 +1,8 @@
+This project uses Elasticsearch as a backend service (e.g., https://www.elastic.co/elasticsearch/).
+
+Elasticsearch is licensed under the Elastic License v2.0:
+https://www.elastic.co/licensing/elastic-license
+
+By using this project, you acknowledge that you are responsible for complying with the terms of the Elastic License v2.0 when deploying or using Elasticsearch.
+
+This project itself is licensed under the MIT License and does not modify or redistribute Elasticsearch binaries.

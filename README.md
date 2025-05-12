@@ -22,3 +22,11 @@ Each subdirectory includes its own `README.md` with setup and usage instructions
 ## License
 
 This project is licensed under the [MIT License](./LICENSE).
+
+### ⚠️ Elasticsearch Licensing Notice
+
+This project uses [Elasticsearch](https://www.elastic.co/elasticsearch/) for backend search functionality. Elasticsearch is licensed under the [Elastic License v2](https://www.elastic.co/licensing/elastic-license), which allows usage but restricts offering it as a managed service.
+
+> **Note:** This project does not modify or redistribute Elasticsearch itself — it references the official Docker images.
+
+The source code of this search application is MIT-licensed, and you are free to use, modify, and share it — but you are responsible for complying with the Elasticsearch license when deploying it.
