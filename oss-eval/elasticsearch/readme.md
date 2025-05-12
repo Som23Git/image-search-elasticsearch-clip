@@ -1,6 +1,16 @@
 ### Elasticsearch benchmarks:
 
+- Version: 8.17.5
+
 - Official Elasticsearch benchmarks: https://elasticsearch-benchmarks.elastic.co/#tracks/msmarco-passage-ranking/nightly/default/90d
+
+- Maven Repo for dependencies and its Licenses: https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/8.17.5.
+
+```
+REPOSITORY                            TAG       IMAGE ID       CREATED         SIZE
+docker.elastic.co/elasticsearch/elasticsearch   8.17.5    c89b92250c55   4 weeks ago     856MB
+docker.elastic.co/kibana/kibana                 8.17.5    bfe8876d4d2e   4 weeks ago     1.2GB
+```
 
 ```
 # Indexing requests
@@ -93,3 +103,13 @@ Transfer/sec:     51.54MB
 ### Stack Monitoring
 
 ![Stack Monitoring](./assets/stack_monitoring.png)
+
+### Docker Stats / Resource Consumption
+
+```
+CONTAINER ID   NAME            CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O    PIDS 
+5137bc9bf514   kibana          6.97%     606.9MiB / 7.752GiB   7.65%     59.4MB / 133MB   0B / 0B      12 
+a64a3277bdf8   elasticsearch   2.46%     1.882GiB / 7.752GiB   24.27%    617MB / 7.51GB   0B / 241MB   111 
+```
+
+![docker_chart](./assets/docker_chart.png)
