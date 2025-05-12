@@ -26,9 +26,6 @@ The goal is to **understand product differentiation**, test **Docker-based perfo
 | Product         | Description |
 |-----------------|-------------|
 | **Grafana + Prometheus** | Open-source monitoring, alerting, and visualization stack |
-| **Vector**       | Blazing-fast observability pipeline (logs, metrics, traces) |
-| **Logstash**     | Data ingestion and transformation pipeline |
-| **Beats**        | Lightweight shippers for logs, metrics, and audit data |
 | **Splunk**       | Enterprise-grade observability and SIEM platform (proprietary) |
 | **Datadog**      | SaaS-based observability platform (proprietary) |
 

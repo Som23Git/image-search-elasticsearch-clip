@@ -1,0 +1,7 @@
+Indexing Performance Report
+===========================
+Documents Indexed: 10000
+Total Time: 1.0 seconds
+Docs/sec: 10000
+Errors: 0
+Timestamp: Mon May 12 09:44:41 IST 2025

@@ -1,0 +1,8 @@
+Running 30s test @ http://localhost:9200/msmarco/_search
+  4 threads and 50 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     3.56ms    2.23ms  37.55ms   80.23%
+    Req/Sec     3.53k   421.10     4.68k    80.83%
+  422068 requests in 30.02s, 1.51GB read
+Requests/sec:  14060.55
+Transfer/sec:     51.54MB
