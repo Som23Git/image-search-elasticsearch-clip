@@ -1,6 +1,6 @@
 ### Elasticsearch benchmarks:
 
-- Version: 8.17.5
+- Version: `8.17.5`
 
 - Official Elasticsearch benchmarks: https://elasticsearch-benchmarks.elastic.co/#tracks/msmarco-passage-ranking/nightly/default/90d
 
