@@ -5,6 +5,7 @@
 - Official Elasticsearch benchmarks: https://elasticsearch-benchmarks.elastic.co/#tracks/msmarco-passage-ranking/nightly/default/90d
 
 - Maven Repo for dependencies and its Licenses: https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/8.17.5.
+- Maven Repo for dependencies for 9.0.1: https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/9.0.1
 
 ```
 REPOSITORY                            TAG       IMAGE ID       CREATED         SIZE
