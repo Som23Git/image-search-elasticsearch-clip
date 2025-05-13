@@ -10,14 +10,15 @@ The goal is to **understand product differentiation**, test **Docker-based perfo
 
 ### 🔍 Search Engines
 
-| Product         | Description |
-|----------------|-------------|
-| **Elasticsearch** | Full-text, analytics, and vector search with powerful DSL |
-| **OpenSearch**    | OSS fork of Elasticsearch with similar capabilities |
-| **Solr**          | Apache search engine with customizable schema & faceting |
-| **Vespa**         | Built for AI-powered search at scale, supports on-node ML |
-| **Meilisearch**   | Lightweight, near-instant search with low resource usage |
-| **Typesense**     | Fast and typo-tolerant search engine for small-medium apps |
+| Product           | Description                                                | Core Engine   | License                 | Latest Version | Lucene Version |
+| ----------------- | ---------------------------------------------------------- | ------------- | ----------------------- | -------------- | -------------- |
+| **Elasticsearch** | Full-text, analytics, and vector search with powerful DSL  | Apache Lucene | AGPLv3, SSPL, or Elastic License v2      | 9.0.1          | 10.1.0         |
+| **OpenSearch**    | OSS fork of Elasticsearch with similar capabilities        | Apache Lucene | Apache 2.0              | 3.0.0          | 10.1.0         |
+| **Solr**          | Apache search engine with customizable schema & faceting   | Apache Lucene | Apache 2.0              | 9.5.0          | 9.8.0          |
+| **Vespa**         | Built for AI-powered search at scale, supports on-node ML  | Custom        | Apache 2.0              | 8.348.57       | N/A            |
+| **Meilisearch**   | Lightweight, near-instant search with low resource usage   | Custom (Rust) | MIT                     | 1.7.2          | N/A            |
+| **Typesense**     | Fast and typo-tolerant search engine for small-medium apps | Custom (C++)  | GPLv3 (with commercial) | 0.25.1         | N/A            |
+
 
 ---
 
