@@ -7,6 +7,8 @@ Github: https://github.com/opensearch-project/OpenSearch/releases/tag/3.0.0
 
 Image used: https://hub.docker.com/layers/opensearchproject/opensearch/3.0.0/images/sha256-22c18a39aae9868d76df4ffc4713d164c81b2c5ee8be7ad67da96e0ecd5212e0
 
+Maven repository for licenses for each dependencies: https://mvnrepository.com/artifact/org.opensearch/opensearch/3.0.0.
+
 docker pull opensearchproject/opensearch:3.0.0
 
 https://github.com/opensearch-project/OpenSearch/releases/tag/3.0.0
