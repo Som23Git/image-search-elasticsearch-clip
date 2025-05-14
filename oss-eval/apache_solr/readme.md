@@ -1,10 +1,10 @@
 # Quickstart & Feature Comparison with Elasticsearch
 
-**Solr Version:** 9.8.1 (recently released on March 12th)
-**GitHub of Solr repo:** https://github.com/apache/solr
-**License:** Apache 2.0
-**Maven repository:** https://mvnrepository.com/artifact/org.apache.solr/solr-core
-**Built on top of:** [Solr 9.8.1](https://mvnrepository.com/artifact/org.apache.solr/solr-core/9.8.1#:~:text=org.apache.lucene%20%C2%BB%20lucene%2Dcore) uses `Apache Lucene 9.11.1` whereas the [Elasticsearch 9.0.1](https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/9.0.1#:~:text=org.apache.lucene%20%C2%BB%20lucene%2Dcore) is already using `Apache Lucene 10.1.0`
+- **Solr Version:** 9.8.1 (recently released on March 12th)
+- **GitHub of Solr repo:** https://github.com/apache/solr
+- **License:** Apache 2.0
+- **Maven repository:** https://mvnrepository.com/artifact/org.apache.solr/solr-core
+- **Built on top of:** [Solr 9.8.1](https://mvnrepository.com/artifact/org.apache.solr/solr-core/9.8.1#:~:text=org.apache.lucene%20%C2%BB%20lucene%2Dcore) uses `Apache Lucene 9.11.1` whereas the [Elasticsearch 9.0.1](https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/9.0.1#:~:text=org.apache.lucene%20%C2%BB%20lucene%2Dcore) is already using `Apache Lucene 10.1.0`
 
 ---
 
