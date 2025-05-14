@@ -1,0 +1,59 @@
+services:
+
+  solr:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: solr_981
+    ports:
+      - "8983:8983"
+      - "5556:5556"
+    environment:
+      - SOLR_JAVA_MEM=-Xms1g -Xmx1g
+      - ENABLE_REMOTE_JMX_OPTS=true
+      - SOLR_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=18983 -Dcom.sun.management.jmxremote.rmi.port=18983 -Dcom.sun.management.jmxremote.local.only=false -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Djava.rmi.server.hostname=localhost -javaagent:/opt/jmx_prometheus_javaagent.jar=5556:/opt/jmx_config.yml -Dsolr.jmx=true
+    volumes:
+      - solr_data:/var/solr
+    command:
+      - solr-precreate
+      - vectorcore
+    networks:
+      - solr-net
+
+
+  banana:
+    image: nginx:alpine
+    container_name: banana_ui
+    ports:
+      - "8080:80"
+    volumes:
+      - ./banana:/usr/share/nginx/html:ro
+    networks:
+      - solr-net
+
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - solr-net
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana_data:/var/lib/grafana
+    networks:
+      - solr-net
+
+volumes:
+  solr_data:
+  grafana_data:
+
+networks:
+  solr-net:

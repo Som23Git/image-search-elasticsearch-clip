@@ -1,0 +1,10 @@
+grant {
+  permission java.io.FilePermission "/opt/jmx_config.yml", "read";
+  permission java.io.FilePermission "/opt/jmx_prometheus_javaagent.jar", "read";
+  permission java.lang.RuntimePermission "*";
+  permission java.util.PropertyPermission "*", "read,write";
+  permission java.net.SocketPermission "*", "connect,resolve";
+  permission java.lang.management.ManagementPermission "monitor";
+  permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+  permission java.security.AllPermission;
+};
