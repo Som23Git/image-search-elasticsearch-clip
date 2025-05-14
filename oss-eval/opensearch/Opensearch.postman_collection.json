@@ -1,0 +1,364 @@
+{
+	"info": {
+		"_postman_id": "a6cf32ed-a50c-4b1a-ab93-a5440e6465c6",
+		"name": "Opensearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22784222"
+	},
+	"item": [
+		{
+			"name": "Update ML Node Settings",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"persistent\": {\n    \"plugins.ml_commons.only_run_on_ml_node\": false\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9200/_cluster/settings",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_cluster",
+						"settings"
+					]
+				},
+				"description": "Generated from cURL: curl -XPUT -u admin:password https://localhost:9200/_cluster/settings -H \"Content-Type: application/json\" -k -d '{\n  \"persistent\": {\n    \"plugins.ml_commons.only_run_on_ml_node\": false\n  }\n}'\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy Models in Opensearch",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "pfQ4'7X2@u0",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "Content-Type: application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "",
+						"value": "Content-Type: application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"all-MiniLM-L6-v2\",\n  \"version\": \"1.0.1\",\n  \"description\": \"Lightweight semantic search model\",\n  \"model_format\": \"ONNX\",\n  \"model_config\": {\n    \"model_type\": \"bert\",\n    \"embedding_dimension\": 384,\n    \"framework_type\": \"onnx\"\n  },\n  \"url\": \"https://artifacts.opensearch.org/models/ml-models/huggingface/sentence-transformers/all-MiniLM-L6-v2/1.0.1/onnx/sentence-transformers_all-MiniLM-L6-v2-1.0.1-onnx.zip\",\n  \"config_url\": \"https://artifacts.opensearch.org/models/ml-models/huggingface/sentence-transformers/all-MiniLM-L6-v2/1.0.1/onnx/config.json\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9200/_plugins/_ml/models/_register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_plugins",
+						"_ml",
+						"models",
+						"_register"
+					]
+				},
+				"description": "Generated from cURL: curl -XPOST -u admin:pfQ4'7X2@u0 https://localhost:9200/_plugins/_ml/models/_register \\\n-H \"Content-Type: application/json\" -k \\\n-d '{\n  \"name\": \"all-MiniLM-L6-v2\",\n  \"version\": \"1.0.1\",\n  \"description\": \"Lightweight semantic search model\",\n  \"model_format\": \"TORCH_SCRIPT\",\n  \"model_config\": {\n    \"model_type\": \"bert\",\n    \"embedding_dimension\": 384,\n    \"framework_type\": \"sentence_transformer\"\n  },\n  \"url\": \"https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/pytorch_model.bin\"\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Register the Model Groups",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"local_model_group\",\n  \"description\": \"My models group\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9200/_plugins/_ml/model_groups/_register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_plugins",
+						"_ml",
+						"model_groups",
+						"_register"
+					]
+				},
+				"description": "Generated from cURL: curl -XPOST -u admin:password https://localhost:9200/_plugins/_ml/model_groups/_register -H \"Content-Type: application/json\" -k -d '{\n  \"name\": \"local_model_group\",\n  \"description\": \"My models group\"\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Register OpenSearch provided model",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"huggingface/sentence-transformers/all-MiniLM-L6-v2\",\n  \"version\": \"1.0.1\",\n  \"model_group_id\": \"S76jrJYB_wMdCzynM7fS\",\n  \"model_format\": \"ONNX\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9200/_plugins/_ml/models/_register",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_plugins",
+						"_ml",
+						"models",
+						"_register"
+					]
+				},
+				"description": "Generated from cURL: curl -XPOST -u admin:password https://localhost:9200/_plugins/_ml/models/_register -H \"Content-Type: application/json\" -k -d '{\n  \"name\": \"huggingface/sentence-transformers/all-MiniLM-L6-v2\",\n  \"version\": \"1.0.1\",\n  \"model_group_id\": \"S76jrJYB_wMdCzynM7fS\",\n  \"model_format\": \"ONNX\"\n}'"
+			},
+			"response": []
+		},
+		{
+			"name": "Check Task for Model ID",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:9200/_plugins/_ml/tasks/TL6mrJYB_wMdCzynRbdh",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_plugins",
+						"_ml",
+						"tasks",
+						"TL6mrJYB_wMdCzynRbdh"
+					]
+				},
+				"description": "Generated from cURL: curl -XGET -u admin:password https://localhost:9200/_plugins/_ml/tasks/TL6mrJYB_wMdCzynRbdh -k\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Deploy the Model",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{opensearch_password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:9200/_plugins/_ml/models/Tb6mrJYB_wMdCzynTLeY/_deploy",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_plugins",
+						"_ml",
+						"models",
+						"Tb6mrJYB_wMdCzynTLeY",
+						"_deploy"
+					]
+				},
+				"description": "Generated from cURL: curl -XPOST -u admin:{{opensearch_password}} https://localhost:9200/_plugins/_ml/models/Tb6mrJYB_wMdCzynTLeY/_deploy -H \"Content-Type: application/json\" -k"
+			},
+			"response": []
+		},
+		{
+			"name": "Predict Text Embedding",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{opensearch_password}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"text_docs\": [\"today is sunny\"],\n  \"return_number\": true,\n  \"target_response\": [\"sentence_embedding\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:9200/_plugins/_ml/_predict/text_embedding/Tb6mrJYB_wMdCzynTLeY",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "9200",
+					"path": [
+						"_plugins",
+						"_ml",
+						"_predict",
+						"text_embedding",
+						"Tb6mrJYB_wMdCzynTLeY"
+					]
+				},
+				"description": "Generated from cURL: curl -XPOST -u admin:{{opensearch_password}} https://localhost:9200/_plugins/_ml/_predict/text_embedding/Tb6mrJYB_wMdCzynTLeY -H \"Content-Type: application/json\" -k -d '{\n  \"text_docs\": [\"today is sunny\"],\n  \"return_number\": true,\n  \"target_response\": [\"sentence_embedding\"]\n}'"
+			},
+			"response": []
+		}
+	]
+}
