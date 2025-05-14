@@ -21,6 +21,8 @@ When trying to install or add LLM models, it's more of a manual work using the A
 
 Attaching the postman collection for deploying the models.
 
+Please note, it got its own `good search features`, and `average observability` and `less security` features.
+
 ---
 ## Version
 
