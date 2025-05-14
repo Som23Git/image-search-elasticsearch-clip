@@ -19,7 +19,7 @@ Feels very old fashioned, not updated but, they do have some good features that 
 
 When trying to install or add LLM models, it's more of a manual work using the APIs, as for now they support `API only`.
 
-Attaching the postman collection for deploying the models.
+Attaching the postman collection for deploying the models. Please follow this documentation: https://docs.opensearch.org/docs/latest/ml-commons-plugin/pretrained-models/#step-1-register-a-model-group, here's how you can register the model and run the pretrained models or custom models.
 
 Please note, it got its own `good search features`, and `average observability` and `less security` features.
 
