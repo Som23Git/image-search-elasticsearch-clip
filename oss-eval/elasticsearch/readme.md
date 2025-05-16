@@ -7,6 +7,12 @@
 - Maven Repo for dependencies and its Licenses: https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/8.17.5.
 - Maven Repo for dependencies for 9.0.1: https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch/9.0.1
 
+- Maven Repo for X-Pack core for 9.0.1 where it has just Elastic License v2: https://mvnrepository.com/artifact/org.elasticsearch.plugin/x-pack-core/9.0.1
+
+- Previous License: https://github.com/elastic/elasticsearch/tree/v7.10.2?tab=License-1-ov-file - `7.10.2` the last `Apache License 2.0`, changed or shifted around 2021.
+
+- Elasticsearch CLA: Contributor License Agreement - https://www.elastic.co/contributor-agreement
+
 ```
 REPOSITORY                            TAG       IMAGE ID       CREATED         SIZE
 docker.elastic.co/elasticsearch/elasticsearch   8.17.5    c89b92250c55   4 weeks ago     856MB
