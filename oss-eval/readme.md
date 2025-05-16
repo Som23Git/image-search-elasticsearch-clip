@@ -8,6 +8,12 @@ The goal is to **understand product differentiation**, test **Docker-based perfo
 
 ## 🧭 Categories & Products Evaluated
 
+Based on `Magic Quadrant from Gartner 12 August 2024` on the Observability platforms:
+
+![magic_quadrant_gartner_2024](./elasticsearch/assets/magic_quadrant_gartner_2024.png)
+
+---
+
 ### 🔍 Search Engines
 
 | Product           | Description                                                | Core Engine   | License                 | Latest Version | Lucene Version |
