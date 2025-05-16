@@ -62,6 +62,7 @@ Please note, it got its own `good search features`, and `average observability` 
 `SQL JOINS` were possible in `opensearch` back in their `initial releases` itself: https://docs.opensearch.org/docs/1.3/search-plugins/sql/sql/complex/.
 
 Whereas, the ES|QL made the `JOINS` possible only in `8.18`: https://www.elastic.co/blog/esql-lookup-join-elasticsearch.
+
 ---
 
 ## Docker Quickstart
