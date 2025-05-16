@@ -51,6 +51,19 @@ Please note, it got its own `good search features`, and `average observability` 
 
 ---
 
+`Dashboard(s)` looks the same as `Elasticsearch`:
+
+![opensearch_dashboard_global_flights](assets/opensearch_dashboard_global_flights.png)
+
+![opensearch_docker_containers](./assets/opensearch_docker_containers.png)
+
+![opensearch_search_relevance_comparison](./assets/opensearch_search_relevance_comparison.png)
+
+`SQL JOINS` were possible in `opensearch` back in their `initial releases` itself: https://docs.opensearch.org/docs/1.3/search-plugins/sql/sql/complex/.
+
+Whereas, the ES|QL made the `JOINS` possible only in `8.18`: https://www.elastic.co/blog/esql-lookup-join-elasticsearch.
+---
+
 ## Docker Quickstart
 
 ### Pull OpenSearch 3.0.0 Image(Latest, announced this May, 2025)
