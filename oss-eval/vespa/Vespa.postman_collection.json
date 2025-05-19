@@ -1,0 +1,1002 @@
+{
+	"info": {
+		"_postman_id": "ebe85211-c721-477d-ba5b-e2e7acd21bb4",
+		"name": "Vespa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22784222"
+	},
+	"item": [
+		{
+			"name": "Admin Cluster Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "admin_cluster_response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:00:05 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"handlers\": [\n        {\n            \"id\": \"com.yahoo.container.usability.BindingsOverviewHandler\",\n            \"class\": \"com.yahoo.container.usability.BindingsOverviewHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.search.handler.SearchHandler\",\n            \"class\": \"com.yahoo.search.handler.SearchHandler\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/search/*\",\n                \"http://*/search\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.document.restapi.resource.DocumentV1ApiHandler\",\n            \"class\": \"com.yahoo.document.restapi.resource.DocumentV1ApiHandler\",\n            \"bundle\": \"vespaclient-container-plugin:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/document/v1/*\",\n                \"http://*/document/v1/*/\"\n            ]\n        },\n        {\n            \"id\": \"internalNoThrottledSource@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.document.restapi.resource.RestApi\",\n            \"class\": \"com.yahoo.document.restapi.resource.RestApi\",\n            \"bundle\": \"vespaclient-container-plugin:8.521.17\",\n            \"serverBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.vespa.http.server.FeedHandler\",\n            \"class\": \"com.yahoo.vespa.http.server.FeedHandler\",\n            \"bundle\": \"vespaclient-container-plugin:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/reserved-for-internal-use/feedapi\",\n                \"http://*/reserved-for-internal-use/feedapi/\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.observability.ApplicationStatusHandler\",\n            \"class\": \"com.yahoo.container.handler.observability.ApplicationStatusHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/ApplicationStatus\"\n            ]\n        },\n        {\n            \"id\": \"chain.indexing@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": []\n        },\n        {\n            \"id\": \"source@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.metrics.PrometheusV1Handler\",\n            \"class\": \"com.yahoo.container.handler.metrics.PrometheusV1Handler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/prometheus/v1\",\n                \"http://*/prometheus/v1/*\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.metrics.MetricsV2Handler\",\n            \"class\": \"com.yahoo.container.handler.metrics.MetricsV2Handler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/metrics/v2\",\n                \"http://*/metrics/v2/*\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.docproc.jdisc.DocumentProcessingHandler\",\n            \"class\": \"com.yahoo.docproc.jdisc.DocumentProcessingHandler\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\",\n            \"serverBindings\": [\n                \"mbus://*/chain.indexing\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.state.StateHandler\",\n            \"class\": \"com.yahoo.container.jdisc.state.StateHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/state/v1\",\n                \"http://*/state/v1/*\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.VipStatusHandler\",\n            \"class\": \"com.yahoo.container.handler.VipStatusHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/status.html\"\n            ]\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Index Document",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/document/v1/music/music/docid/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"document",
+						"v1",
+						"music",
+						"music",
+						"docid",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "document_indexing",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n          \"fields\": {\n            \"title\": \"Imagine\",\n            \"artist\": \"John Lennon\"\n          }\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/document/v1/music/music/docid/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"v1",
+								"music",
+								"music",
+								"docid",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 17:55:18 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pathId\": \"/document/v1/music/music/docid/1\",\n    \"id\": \"id:music:music::1\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Index Document 1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"fields\": {\n          \"title\": \"Hey Jude\",\n          \"artist\": \"The Beatles\"\n        }\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/document/v1/music/music/docid/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"document",
+						"v1",
+						"music",
+						"music",
+						"docid",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "index_document_1",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"fields\": {\n          \"title\": \"Imagine\",\n          \"artist\": \"John Lennon\"\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/document/v1/music/music/docid/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"v1",
+								"music",
+								"music",
+								"docid",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:11:05 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pathId\": \"/document/v1/music/music/docid/1\",\n    \"id\": \"id:music:music::1\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Index Document 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"fields\": {\n          \"title\": \"Hey Jude\",\n          \"artist\": \"The Beatles\"\n        }\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/document/v1/music/music/docid/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"document",
+						"v1",
+						"music",
+						"music",
+						"docid",
+						"2"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "index_document_2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"fields\": {\n          \"title\": \"Hey Jude\",\n          \"artist\": \"The Beatles\"\n        }\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/document/v1/music/music/docid/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"v1",
+								"music",
+								"music",
+								"docid",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:09:51 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pathId\": \"/document/v1/music/music/docid/2\",\n    \"id\": \"id:music:music::2\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Search Document 1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search/?yql=select+*+from+music+where+title+contains+'Imagine'",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "yql",
+							"value": "select+*+from+music+where+title+contains+'Imagine'"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "document_searching",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/search/?yql=select+*+from+music+where+title+contains+'Imagine'",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "yql",
+									"value": "select+*+from+music+where+title+contains+'Imagine'"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 17:55:44 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"root\": {\n        \"id\": \"toplevel\",\n        \"relevance\": 1,\n        \"fields\": {\n            \"totalCount\": 1\n        },\n        \"coverage\": {\n            \"coverage\": 100,\n            \"documents\": 1,\n            \"full\": true,\n            \"nodes\": 1,\n            \"results\": 1,\n            \"resultsFull\": 1\n        },\n        \"children\": [\n            {\n                \"id\": \"id:music:music::1\",\n                \"relevance\": 0.38186238359951247,\n                \"source\": \"music\",\n                \"fields\": {\n                    \"sddocname\": \"music\",\n                    \"documentid\": \"id:music:music::1\",\n                    \"title\": \"Imagine\",\n                    \"artist\": \"John Lennon\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Search Document 2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"yql\": \"select * from music where title contains 'Imagine'\",\n        \"hits\": 10\n      }",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/search/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "document_search_2",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"yql\": \"select * from music where title contains 'Imagine'\",\n        \"hits\": 10\n      }",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/search/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"search",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:13:25 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"root\": {\n        \"id\": \"toplevel\",\n        \"relevance\": 1,\n        \"fields\": {\n            \"totalCount\": 1\n        },\n        \"coverage\": {\n            \"coverage\": 100,\n            \"documents\": 2,\n            \"full\": true,\n            \"nodes\": 1,\n            \"results\": 1,\n            \"resultsFull\": 1\n        },\n        \"children\": [\n            {\n                \"id\": \"id:music:music::1\",\n                \"relevance\": 0.3818623835995125,\n                \"source\": \"music\",\n                \"fields\": {\n                    \"sddocname\": \"music\",\n                    \"documentid\": \"id:music:music::1\",\n                    \"title\": \"Imagine\",\n                    \"artist\": \"John Lennon\"\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Status Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:19071/application/v2/tenant/default/application/default/environment/default/region/default/instance/default",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "19071",
+					"path": [
+						"application",
+						"v2",
+						"tenant",
+						"default",
+						"application",
+						"default",
+						"environment",
+						"default",
+						"region",
+						"default",
+						"instance",
+						"default"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "cluster_status_check",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:19071/application/v2/tenant/default/application/default/environment/default/region/default/instance/default",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "19071",
+							"path": [
+								"application",
+								"v2",
+								"tenant",
+								"default",
+								"application",
+								"default",
+								"environment",
+								"default",
+								"region",
+								"default",
+								"instance",
+								"default"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 17:58:07 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"generation\": 2,\n    \"applicationPackageFileReference\": \"\",\n    \"modelVersions\": [\n        \"8.521.17\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Prometheus Metrics Exposed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/prometheus/v1/values",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"prometheus",
+						"v1",
+						"values"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "prometheus_metrics_vespa",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/prometheus/v1/values",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"prometheus",
+								"v1",
+								"values"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:01:47 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain; charset=UTF-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "# HELP jdisc_thread_pool_work_queue_size_min \n# TYPE jdisc_thread_pool_work_queue_size_min untyped\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_min{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP cluster_controller_down_count_last \n# TYPE cluster_controller_down_count_last untyped\ncluster_controller_down_count_last{node_type=\"distributor\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\ncluster_controller_down_count_last{node_type=\"storage\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\n# HELP content_proton_search_protocol_docsum_requested_documents_rate \n# TYPE content_proton_search_protocol_docsum_requested_documents_rate untyped\ncontent_proton_search_protocol_docsum_requested_documents_rate{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP vds_filestor_allthreads_update_count_rate \n# TYPE vds_filestor_allthreads_update_count_rate untyped\nvds_filestor_allthreads_update_count_rate{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP query_latency_count \n# TYPE query_latency_count untyped\nquery_latency_count{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP jdisc_thread_pool_active_threads_max \n# TYPE jdisc_thread_pool_active_threads_max untyped\njdisc_thread_pool_active_threads_max{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 1.0 1747677683000\njdisc_thread_pool_active_threads_max{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP query_latency_max \n# TYPE query_latency_max untyped\nquery_latency_max{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 8.0 1747677683000\n# HELP content_proton_search_protocol_query_latency_sum \n# TYPE content_proton_search_protocol_query_latency_sum untyped\ncontent_proton_search_protocol_query_latency_sum{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_search_protocol_query_latency_average \n# TYPE content_proton_search_protocol_query_latency_average untyped\ncontent_proton_search_protocol_query_latency_average{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP feed_latency_count \n# TYPE feed_latency_count untyped\nfeed_latency_count{operation=\"PUT\",api=\"documentV1\",status=\"OK\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nfeed_latency_count{operation=\"GET\",api=\"documentV1\",status=\"OK\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP totalhits_per_query_average \n# TYPE totalhits_per_query_average untyped\ntotalhits_per_query_average{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.0 1747677683000\n# HELP queries_rate \n# TYPE queries_rate untyped\nqueries_rate{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_latency_average \n# TYPE content_proton_documentdb_matching_rank_profile_query_latency_average untyped\ncontent_proton_documentdb_matching_rank_profile_query_latency_average{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_latency_average{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP cluster_controller_resource_usage_max_memory_utilization_max \n# TYPE cluster_controller_resource_usage_max_memory_utilization_max untyped\ncluster_controller_resource_usage_max_memory_utilization_max{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.008440890091 1747677683000\n# HELP cluster_controller_maintenance_count_max \n# TYPE cluster_controller_maintenance_count_max untyped\ncluster_controller_maintenance_count_max{node_type=\"distributor\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\ncluster_controller_maintenance_count_max{node_type=\"storage\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\n# HELP sentinel_totalRestarts_last \n# TYPE sentinel_totalRestarts_last untyped\nsentinel_totalRestarts_last{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_docs_reranked_rate \n# TYPE content_proton_documentdb_matching_docs_reranked_rate untyped\ncontent_proton_documentdb_matching_docs_reranked_rate{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_documents_active_last \n# TYPE content_proton_documentdb_documents_active_last untyped\ncontent_proton_documentdb_documents_active_last{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.0 1747677683000\n# HELP content_proton_resource_usage_feeding_blocked_max \n# TYPE content_proton_resource_usage_feeding_blocked_max untyped\ncontent_proton_resource_usage_feeding_blocked_max{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_rerank_time_average \n# TYPE content_proton_documentdb_matching_rank_profile_rerank_time_average untyped\ncontent_proton_documentdb_matching_rank_profile_rerank_time_average{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_rerank_time_average{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_latency_max \n# TYPE content_proton_documentdb_matching_rank_profile_query_latency_max untyped\ncontent_proton_documentdb_matching_rank_profile_query_latency_max{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_latency_max{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP jdisc_thread_pool_work_queue_size_max \n# TYPE jdisc_thread_pool_work_queue_size_max untyped\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_max{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP cluster_controller_up_count_last \n# TYPE cluster_controller_up_count_last untyped\ncluster_controller_up_count_last{node_type=\"distributor\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\ncluster_controller_up_count_last{node_type=\"storage\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\n# HELP jdisc_thread_pool_work_queue_capacity_max \n# TYPE jdisc_thread_pool_work_queue_capacity_max untyped\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 50.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 650.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1600.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 500.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 400.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 650.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 650.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 400.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 50.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 650.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 50.0 1747677683000\njdisc_thread_pool_work_queue_capacity_max{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 650.0 1747677683000\n# HELP query_latency_sum \n# TYPE query_latency_sum untyped\nquery_latency_sum{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP content_proton_search_protocol_docsum_latency_count \n# TYPE content_proton_search_protocol_docsum_latency_count untyped\ncontent_proton_search_protocol_docsum_latency_count{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_docs_matched_rate \n# TYPE content_proton_documentdb_matching_docs_matched_rate untyped\ncontent_proton_documentdb_matching_docs_matched_rate{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_disk_usage_last \n# TYPE content_proton_documentdb_disk_usage_last untyped\ncontent_proton_documentdb_disk_usage_last{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 14520.0 1747677683000\n# HELP content_proton_search_protocol_query_latency_max \n# TYPE content_proton_search_protocol_query_latency_max untyped\ncontent_proton_search_protocol_query_latency_max{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP hits_per_query_average \n# TYPE hits_per_query_average untyped\nhits_per_query_average{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.0 1747677683000\n# HELP content_proton_search_protocol_docsum_latency_average \n# TYPE content_proton_search_protocol_docsum_latency_average untyped\ncontent_proton_search_protocol_docsum_latency_average{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP feed_latency_sum \n# TYPE feed_latency_sum untyped\nfeed_latency_sum{operation=\"PUT\",api=\"documentV1\",status=\"OK\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nfeed_latency_sum{operation=\"GET\",api=\"documentV1\",status=\"OK\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP cluster_controller_resource_usage_max_disk_utilization_max \n# TYPE cluster_controller_resource_usage_max_disk_utilization_max untyped\ncluster_controller_resource_usage_max_disk_utilization_max{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.7823377601838 1747677683000\n# HELP feed_operations_rate \n# TYPE feed_operations_rate untyped\nfeed_operations_rate{operation=\"PUT\",api=\"documentV1\",status=\"OK\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nfeed_operations_rate{operation=\"GET\",api=\"documentV1\",status=\"OK\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP cluster_controller_is_master_last \n# TYPE cluster_controller_is_master_last untyped\ncluster_controller_is_master_last{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\n# HELP query_latency_average \n# TYPE query_latency_average untyped\nquery_latency_average{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 8.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_setup_time_count \n# TYPE content_proton_documentdb_matching_rank_profile_query_setup_time_count untyped\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_count{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_count{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP jdisc_thread_pool_active_threads_min \n# TYPE jdisc_thread_pool_active_threads_min untyped\njdisc_thread_pool_active_threads_min{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_min{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_rerank_time_sum \n# TYPE content_proton_documentdb_matching_rank_profile_rerank_time_sum untyped\ncontent_proton_documentdb_matching_rank_profile_rerank_time_sum{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_rerank_time_sum{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP jdisc_thread_pool_active_threads_sum \n# TYPE jdisc_thread_pool_active_threads_sum untyped\njdisc_thread_pool_active_threads_sum{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 2.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 7.0 1747677683000\njdisc_thread_pool_active_threads_sum{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_latency_count \n# TYPE content_proton_documentdb_matching_rank_profile_query_latency_count untyped\ncontent_proton_documentdb_matching_rank_profile_query_latency_count{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_latency_count{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP vds_bouncer_clock_skew_aborts_count \n# TYPE vds_bouncer_clock_skew_aborts_count untyped\nvds_bouncer_clock_skew_aborts_count{serviceId=\"distributor\",hostname=\"vespa\",vespa_service=\"vespa_distributor\",} 0.0 1747677683000\nvds_bouncer_clock_skew_aborts_count{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_setup_time_max \n# TYPE content_proton_documentdb_matching_rank_profile_query_setup_time_max untyped\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_max{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_max{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_rerank_time_max \n# TYPE content_proton_documentdb_matching_rank_profile_rerank_time_max untyped\ncontent_proton_documentdb_matching_rank_profile_rerank_time_max{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_rerank_time_max{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP cluster_controller_resource_usage_nodes_above_limit_last \n# TYPE cluster_controller_resource_usage_nodes_above_limit_last untyped\ncluster_controller_resource_usage_nodes_above_limit_last{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\n# HELP content_proton_documentdb_documents_total_max \n# TYPE content_proton_documentdb_documents_total_max untyped\ncontent_proton_documentdb_documents_total_max{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.0 1747677683000\n# HELP cluster_controller_up_count_max \n# TYPE cluster_controller_up_count_max untyped\ncluster_controller_up_count_max{node_type=\"distributor\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\ncluster_controller_up_count_max{node_type=\"storage\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\n# HELP jdisc_thread_pool_work_queue_size_count \n# TYPE jdisc_thread_pool_work_queue_size_count untyped\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 592.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 592.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 593.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 592.0 1747677683000\njdisc_thread_pool_work_queue_size_count{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 593.0 1747677683000\n# HELP cluster_controller_resource_usage_max_disk_utilization_last \n# TYPE cluster_controller_resource_usage_max_disk_utilization_last untyped\ncluster_controller_resource_usage_max_disk_utilization_last{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.7823377601838 1747677683000\n# HELP totalhits_per_query_sum \n# TYPE totalhits_per_query_sum untyped\ntotalhits_per_query_sum{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP jdisc_thread_pool_size_max \n# TYPE jdisc_thread_pool_size_max untyped\njdisc_thread_pool_size_max{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 8.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 40.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 16.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 8.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 8.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 8.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 8.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 1.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 8.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 1.0 1747677683000\njdisc_thread_pool_size_max{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 8.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_latency_sum \n# TYPE content_proton_documentdb_matching_rank_profile_query_latency_sum untyped\ncontent_proton_documentdb_matching_rank_profile_query_latency_sum{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_latency_sum{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_resource_usage_disk_average \n# TYPE content_proton_resource_usage_disk_average untyped\ncontent_proton_resource_usage_disk_average{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.586753362335 1747677683000\n# HELP content_proton_resource_usage_feeding_blocked_last \n# TYPE content_proton_resource_usage_feeding_blocked_last untyped\ncontent_proton_resource_usage_feeding_blocked_last{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP cpu_util \n# TYPE cpu_util untyped\ncpu_util{serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.7076870921265 1747677683000\ncpu_util{serviceId=\"distributor\",hostname=\"vespa\",vespa_service=\"vespa_distributor\",} 0.3644376642088 1747677683000\ncpu_util{serviceId=\"logd\",hostname=\"vespa\",vespa_service=\"vespa_logd\",} 0.0254258835495 1747677683000\ncpu_util{serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.8983812187474 1747677683000\ncpu_util{serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\ncpu_util{serviceId=\"slobrok\",hostname=\"vespa\",vespa_service=\"vespa_slobrok\",} 0.0678023561319 1747677683000\ncpu_util{serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.5466564963132 1747677683000\ncpu_util{serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 1.067887109077 1747677683000\ncpu_util{serviceId=\"logserver\",hostname=\"vespa\",vespa_service=\"vespa_logserver\",} 0.0762776506484 1747677683000\ncpu_util{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.3051106025934 1747677683000\ncpu_util{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP memory_virt \n# TYPE memory_virt untyped\nmemory_virt{serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 7.59721984E8 1747677683000\nmemory_virt{serviceId=\"distributor\",hostname=\"vespa\",vespa_service=\"vespa_distributor\",} 5.04262656E8 1747677683000\nmemory_virt{serviceId=\"logd\",hostname=\"vespa\",vespa_service=\"vespa_logd\",} 1.35135232E8 1747677683000\nmemory_virt{serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 3.65914112E9 1747677683000\nmemory_virt{serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nmemory_virt{serviceId=\"slobrok\",hostname=\"vespa\",vespa_service=\"vespa_slobrok\",} 1.17276672E8 1747677683000\nmemory_virt{serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 7.5266048E8 1747677683000\nmemory_virt{serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 9.58926848E8 1747677683000\nmemory_virt{serviceId=\"logserver\",hostname=\"vespa\",vespa_service=\"vespa_logserver\",} 8.92567552E8 1747677683000\nmemory_virt{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.66244352E9 1747677683000\nmemory_virt{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP content_proton_documentdb_documents_active_max \n# TYPE content_proton_documentdb_documents_active_max untyped\ncontent_proton_documentdb_documents_active_max{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.0 1747677683000\n# HELP content_proton_documentdb_documents_ready_max \n# TYPE content_proton_documentdb_documents_ready_max untyped\ncontent_proton_documentdb_documents_ready_max{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.0 1747677683000\n# HELP jdisc_thread_pool_active_threads_count \n# TYPE jdisc_thread_pool_active_threads_count untyped\njdisc_thread_pool_active_threads_count{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 592.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 592.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 593.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 592.0 1747677683000\njdisc_thread_pool_active_threads_count{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 593.0 1747677683000\n# HELP cluster_controller_down_count_max \n# TYPE cluster_controller_down_count_max untyped\ncluster_controller_down_count_max{node_type=\"distributor\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\ncluster_controller_down_count_max{node_type=\"storage\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\n# HELP totalhits_per_query_count \n# TYPE totalhits_per_query_count untyped\ntotalhits_per_query_count{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP cpu \n# TYPE cpu untyped\ncpu{serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 2.8307483685058 1747677683000\ncpu{serviceId=\"distributor\",hostname=\"vespa\",vespa_service=\"vespa_distributor\",} 1.4577506568353 1747677683000\ncpu{serviceId=\"logd\",hostname=\"vespa\",vespa_service=\"vespa_logd\",} 0.1017035341978 1747677683000\ncpu{serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 3.5935248749894 1747677683000\ncpu{serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\ncpu{serviceId=\"slobrok\",hostname=\"vespa\",vespa_service=\"vespa_slobrok\",} 0.2712094245275 1747677683000\ncpu{serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 2.186625985253 1747677683000\ncpu{serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 4.2715484363082 1747677683000\ncpu{serviceId=\"logserver\",hostname=\"vespa\",vespa_service=\"vespa_logserver\",} 0.3051106025934 1747677683000\ncpu{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.2204424103738 1747677683000\ncpu{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP hits_per_query_sum \n# TYPE hits_per_query_sum untyped\nhits_per_query_sum{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP jdisc_gc_ms_max \n# TYPE jdisc_gc_ms_max untyped\njdisc_gc_ms_max{gcName=\"MarkSweepCompact\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_gc_ms_max{gcName=\"Copy\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 27.0 1747677683000\njdisc_gc_ms_max{gcName=\"G1YoungGeneration\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_gc_ms_max{gcName=\"G1OldGeneration\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_gc_ms_max{gcName=\"G1OldGeneration\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_gc_ms_max{gcName=\"G1YoungGeneration\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 12.0 1747677683000\njdisc_gc_ms_max{gcName=\"MarkSweepCompact\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_gc_ms_max{gcName=\"Copy\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 8.0 1747677683000\njdisc_gc_ms_max{gcName=\"G1YoungGeneration\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 45.0 1747677683000\njdisc_gc_ms_max{gcName=\"G1OldGeneration\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP serverActiveThreads_average \n# TYPE serverActiveThreads_average untyped\nserverActiveThreads_average{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0033726812816 1747677683000\nserverActiveThreads_average{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\nserverActiveThreads_average{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0118243243243 1747677683000\nserverActiveThreads_average{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP mem_heap_free_average \n# TYPE mem_heap_free_average untyped\nmem_heap_free_average{serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 2.1591572E7 1747677683000\nmem_heap_free_average{serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.156628072E9 1747677683000\nmem_heap_free_average{serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 4.7342106666666664E7 1747677683000\nmem_heap_free_average{serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 1.2818641333333334E7 1747677683000\nmem_heap_free_average{serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 6.5082008E7 1747677683000\n# HELP content_proton_search_protocol_docsum_latency_sum \n# TYPE content_proton_search_protocol_docsum_latency_sum untyped\ncontent_proton_search_protocol_docsum_latency_sum{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP sentinel_totalRestarts_max \n# TYPE sentinel_totalRestarts_max untyped\nsentinel_totalRestarts_max{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP content_proton_resource_usage_memory_average \n# TYPE content_proton_resource_usage_memory_average untyped\ncontent_proton_resource_usage_memory_average{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0067527120728 1747677683000\n# HELP cluster_controller_maintenance_count_last \n# TYPE cluster_controller_maintenance_count_last untyped\ncluster_controller_maintenance_count_last{node_type=\"distributor\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\ncluster_controller_maintenance_count_last{node_type=\"storage\",cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\n# HELP http_status_2xx_rate \n# TYPE http_status_2xx_rate untyped\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"monitoring\",protocol=\"http1\",statusCode=\"200\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0166666666667 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"monitoring\",protocol=\"http1\",statusCode=\"200\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0166669444491 1747677683000\nhttp_status_2xx_rate{httpMethod=\"POST\",requestType=\"write\",protocol=\"http1\",statusCode=\"200\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"read\",protocol=\"http1\",statusCode=\"200\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0500008333472 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"read\",protocol=\"http1\",statusCode=\"200\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nhttp_status_2xx_rate{httpMethod=\"PUT\",requestType=\"write\",protocol=\"http1\",statusCode=\"200\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nhttp_status_2xx_rate{httpMethod=\"POST\",requestType=\"write\",protocol=\"http1\",statusCode=\"200\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"monitoring\",protocol=\"http1\",statusCode=\"200\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0166672222407 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"monitoring\",protocol=\"http1\",statusCode=\"200\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0166666666667 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"monitoring\",protocol=\"http1\",statusCode=\"200\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0166666666667 1747677683000\nhttp_status_2xx_rate{httpMethod=\"GET\",requestType=\"read\",protocol=\"http1\",statusCode=\"200\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.05 1747677683000\n# HELP hits_per_query_count \n# TYPE hits_per_query_count untyped\nhits_per_query_count{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP hits_per_query_max \n# TYPE hits_per_query_max untyped\nhits_per_query_max{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.0 1747677683000\n# HELP content_proton_documentdb_documents_total_last \n# TYPE content_proton_documentdb_documents_total_last untyped\ncontent_proton_documentdb_documents_total_last{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_rerank_time_count \n# TYPE content_proton_documentdb_matching_rank_profile_rerank_time_count untyped\ncontent_proton_documentdb_matching_rank_profile_rerank_time_count{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_rerank_time_count{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP totalhits_per_query_max \n# TYPE totalhits_per_query_max untyped\ntotalhits_per_query_max{chain=\"vespa\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_setup_time_sum \n# TYPE content_proton_documentdb_matching_rank_profile_query_setup_time_sum untyped\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_sum{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_sum{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP jdisc_gc_ms_average \n# TYPE jdisc_gc_ms_average untyped\njdisc_gc_ms_average{gcName=\"MarkSweepCompact\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_gc_ms_average{gcName=\"Copy\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 12.5 1747677683000\njdisc_gc_ms_average{gcName=\"G1YoungGeneration\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_gc_ms_average{gcName=\"G1OldGeneration\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_gc_ms_average{gcName=\"G1OldGeneration\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_gc_ms_average{gcName=\"G1YoungGeneration\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 2.0 1747677683000\njdisc_gc_ms_average{gcName=\"MarkSweepCompact\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_gc_ms_average{gcName=\"Copy\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 4.8333333333333 1747677683000\njdisc_gc_ms_average{gcName=\"G1YoungGeneration\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 22.5 1747677683000\njdisc_gc_ms_average{gcName=\"G1OldGeneration\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP vds_distributor_docsstored_average \n# TYPE vds_distributor_docsstored_average untyped\nvds_distributor_docsstored_average{serviceId=\"distributor\",hostname=\"vespa\",vespa_service=\"vespa_distributor\",} 1.0 1747677683000\n# HELP docproc_documents_sum \n# TYPE docproc_documents_sum untyped\ndocproc_documents_sum{docproc=\"com.yahoo.docprocs.indexing.IndexingProcessor@indexing\",chain=\"indexing\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\n# HELP content_proton_documentdb_documents_ready_last \n# TYPE content_proton_documentdb_documents_ready_last untyped\ncontent_proton_documentdb_documents_ready_last{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1.0 1747677683000\n# HELP memory_rss \n# TYPE memory_rss untyped\nmemory_rss{serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.66170624E8 1747677683000\nmemory_rss{serviceId=\"distributor\",hostname=\"vespa\",vespa_service=\"vespa_distributor\",} 6.3070208E7 1747677683000\nmemory_rss{serviceId=\"logd\",hostname=\"vespa\",vespa_service=\"vespa_logd\",} 5111808.0 1747677683000\nmemory_rss{serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 1.433997312E9 1747677683000\nmemory_rss{serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\nmemory_rss{serviceId=\"slobrok\",hostname=\"vespa\",vespa_service=\"vespa_slobrok\",} 2490368.0 1747677683000\nmemory_rss{serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 1.2754944E8 1747677683000\nmemory_rss{serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 2.4522752E8 1747677683000\nmemory_rss{serviceId=\"logserver\",hostname=\"vespa\",vespa_service=\"vespa_logserver\",} 5.373952E7 1747677683000\nmemory_rss{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 8.5336064E7 1747677683000\nmemory_rss{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP content_proton_transactionlog_disk_usage_last \n# TYPE content_proton_transactionlog_disk_usage_last untyped\ncontent_proton_transactionlog_disk_usage_last{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 959.0 1747677683000\n# HELP content_proton_search_protocol_query_latency_count \n# TYPE content_proton_search_protocol_query_latency_count untyped\ncontent_proton_search_protocol_query_latency_count{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_memory_usage_allocated_bytes_last \n# TYPE content_proton_documentdb_memory_usage_allocated_bytes_last untyped\ncontent_proton_documentdb_memory_usage_allocated_bytes_last{documenttype=\"music\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 1431848.0 1747677683000\n# HELP vds_filestor_allthreads_put_count_rate \n# TYPE vds_filestor_allthreads_put_count_rate untyped\nvds_filestor_allthreads_put_count_rate{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP cluster_controller_is_master_max \n# TYPE cluster_controller_is_master_max untyped\ncluster_controller_is_master_max{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 1.0 1747677683000\n# HELP cluster_controller_resource_usage_max_memory_utilization_last \n# TYPE cluster_controller_resource_usage_max_memory_utilization_last untyped\ncluster_controller_resource_usage_max_memory_utilization_last{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.008440890091 1747677683000\n# HELP content_proton_search_protocol_docsum_latency_max \n# TYPE content_proton_search_protocol_docsum_latency_max untyped\ncontent_proton_search_protocol_docsum_latency_max{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP cluster_controller_resource_usage_nodes_above_limit_max \n# TYPE cluster_controller_resource_usage_nodes_above_limit_max untyped\ncluster_controller_resource_usage_nodes_above_limit_max{cluster=\"music\",controller_index=\"0\",serviceId=\"container-clustercontroller\",clusterId=\"music\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\n# HELP sentinel_totalRestarts_sum \n# TYPE sentinel_totalRestarts_sum untyped\nsentinel_totalRestarts_sum{serviceId=\"config-sentinel\",hostname=\"vespa\",vespa_service=\"vespa_config_sentinel\",} 0.0 1747677683000\n# HELP vds_filestor_allthreads_remove_count_rate \n# TYPE vds_filestor_allthreads_remove_count_rate untyped\nvds_filestor_allthreads_remove_count_rate{serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP content_proton_documentdb_matching_rank_profile_query_setup_time_average \n# TYPE content_proton_documentdb_matching_rank_profile_query_setup_time_average untyped\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_average{documenttype=\"music\",rankProfile=\"unranked\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\ncontent_proton_documentdb_matching_rank_profile_query_setup_time_average{documenttype=\"music\",rankProfile=\"default\",serviceId=\"searchnode\",hostname=\"vespa\",vespa_service=\"vespa_searchnode\",} 0.0 1747677683000\n# HELP jdisc_thread_pool_work_queue_size_sum \n# TYPE jdisc_thread_pool_work_queue_size_sum untyped\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-pool\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-handler-common\",serviceId=\"container-clustercontroller\",hostname=\"vespa\",vespa_service=\"vespa_container_clustercontroller\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"search-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"feedapi-handler\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-pool\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 2.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-handler-common\",serviceId=\"container\",hostname=\"vespa\",vespa_service=\"vespa_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-handler-common\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-pool\",serviceId=\"configserver\",hostname=\"vespa\",vespa_service=\"vespa_configserver\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-pool\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-handler-common\",serviceId=\"logserver-container\",hostname=\"vespa\",vespa_service=\"vespa_logserver_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-pool\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\njdisc_thread_pool_work_queue_size_sum{threadpool=\"default-handler-common\",serviceId=\"metricsproxy-container\",hostname=\"vespa\",vespa_service=\"vespa_metricsproxy_container\",} 0.0 1747677683000\n# HELP vespa_container_clustercontroller_status status of service\n# TYPE vespa_container_clustercontroller_status untyped\nvespa_container_clustercontroller_status 1.0 1747677683000\n# HELP vespa_distributor_status status of service\n# TYPE vespa_distributor_status untyped\nvespa_distributor_status 1.0 1747677683000\n# HELP vespa_logd_status status of service\n# TYPE vespa_logd_status untyped\nvespa_logd_status 1.0 1747677683000\n# HELP vespa_container_status status of service\n# TYPE vespa_container_status untyped\nvespa_container_status 1.0 1747677683000\n# HELP vespa_configserver_status status of service\n# TYPE vespa_configserver_status untyped\nvespa_configserver_status 1.0 1747677683000\n# HELP vespa_slobrok_status status of service\n# TYPE vespa_slobrok_status untyped\nvespa_slobrok_status 1.0 1747677683000\n# HELP vespa_logserver_container_status status of service\n# TYPE vespa_logserver_container_status untyped\nvespa_logserver_container_status 1.0 1747677683000\n# HELP vespa_metricsproxy_container_status status of service\n# TYPE vespa_metricsproxy_container_status untyped\nvespa_metricsproxy_container_status 1.0 1747677683000\n# HELP vespa_logserver_status status of service\n# TYPE vespa_logserver_status untyped\nvespa_logserver_status 1.0 1747677683000\n# HELP vespa_searchnode_status status of service\n# TYPE vespa_searchnode_status untyped\nvespa_searchnode_status 1.0 1747677683000\n# HELP vespa_config_sentinel_status status of service\n# TYPE vespa_config_sentinel_status untyped\nvespa_config_sentinel_status 1.0 1747677683000\n"
+				}
+			]
+		},
+		{
+			"name": "Application Status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/ApplicationStatus",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"ApplicationStatus"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "application_status",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/ApplicationStatus",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ApplicationStatus"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:03:36 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"application\": {\n        \"vespa\": {\n            \"version\": \"8.521.17\"\n        },\n        \"meta\": {\n            \"name\": \"default\",\n            \"user\": \"unknown\",\n            \"path\": \"\",\n            \"generation\": 2,\n            \"timestamp\": 1747677297530,\n            \"date\": \"Mon May 19 17:54:57 UTC 2025\",\n            \"checksum\": \"837f015e0dfc525d5b64eae67858411f\"\n        },\n        \"user\": {\n            \"version\": \"\"\n        }\n    },\n    \"abstractComponents\": [\n        {\n            \"id\": \"com.yahoo.container.logging.FileConnectionLog\",\n            \"class\": \"com.yahoo.container.logging.FileConnectionLog\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.state.StateMonitor\",\n            \"class\": \"com.yahoo.container.jdisc.state.StateMonitor\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.searcher.ValidateSortingSearcher@music\",\n            \"class\": \"com.yahoo.prelude.searcher.ValidateSortingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.OpportunisticWeakAndSearcher@vespa\",\n            \"class\": \"com.yahoo.search.searchers.OpportunisticWeakAndSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.metric.MicrometerMetricReporter\",\n            \"class\": \"com.yahoo.container.jdisc.metric.MicrometerMetricReporter\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.messagebus.NetworkMultiplexerHolder\",\n            \"class\": \"com.yahoo.container.jdisc.messagebus.NetworkMultiplexerHolder\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.semantics.SemanticSearcher@vespa\",\n            \"class\": \"com.yahoo.prelude.semantics.SemanticSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.grouping.vespa.GroupingExecutor@music\",\n            \"class\": \"com.yahoo.search.grouping.vespa.GroupingExecutor\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.QueryValidator@music\",\n            \"class\": \"com.yahoo.search.searchers.QueryValidator\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.docprocs.indexing.IndexingProcessor@indexing\",\n            \"class\": \"com.yahoo.docprocs.indexing.IndexingProcessor\",\n            \"bundle\": \"docprocs:8.521.17\"\n        },\n        {\n            \"id\": \"dispatcher.music\",\n            \"class\": \"com.yahoo.search.dispatch.ReconfigurableDispatcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.searcher.FieldCollapsingSearcher@vespa\",\n            \"class\": \"com.yahoo.prelude.searcher.FieldCollapsingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.searcher.PosSearcher@vespa\",\n            \"class\": \"com.yahoo.prelude.searcher.PosSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.querytransform.PhrasingSearcher@vespa\",\n            \"class\": \"com.yahoo.prelude.querytransform.PhrasingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.NGramSearcher@music\",\n            \"class\": \"com.yahoo.search.querytransform.NGramSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.ValidateFuzzySearcher@music\",\n            \"class\": \"com.yahoo.search.searchers.ValidateFuzzySearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.grouping.GroupingValidator@music\",\n            \"class\": \"com.yahoo.search.grouping.GroupingValidator\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.ValidateNearestNeighborSearcher@music\",\n            \"class\": \"com.yahoo.search.searchers.ValidateNearestNeighborSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.searcher.ValidatePredicateSearcher@music\",\n            \"class\": \"com.yahoo.prelude.searcher.ValidatePredicateSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"threadpool@feedapi-handler\",\n            \"class\": \"com.yahoo.container.handler.threadpool.ContainerThreadpoolImpl\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.VespaLowercasingSearcher@music\",\n            \"class\": \"com.yahoo.search.querytransform.VespaLowercasingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchchain.ExecutionFactory\",\n            \"class\": \"com.yahoo.search.searchchain.ExecutionFactory\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"threadpool@search-handler\",\n            \"class\": \"com.yahoo.container.handler.threadpool.ContainerThreadpoolImpl\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.WandSearcher@music\",\n            \"class\": \"com.yahoo.search.querytransform.WandSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.RangeQueryOptimizer@music\",\n            \"class\": \"com.yahoo.search.querytransform.RangeQueryOptimizer\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.ContainerLatencySearcher@music\",\n            \"class\": \"com.yahoo.search.searchers.ContainerLatencySearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"federation@native\",\n            \"class\": \"com.yahoo.search.federation.FederationSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.BooleanSearcher@music\",\n            \"class\": \"com.yahoo.search.querytransform.BooleanSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.ValidateMatchPhaseSearcher@music\",\n            \"class\": \"com.yahoo.search.searchers.ValidateMatchPhaseSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.metric.MetricUpdater\",\n            \"class\": \"com.yahoo.container.jdisc.metric.MetricUpdater\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.querytransform.NormalizingSearcher@music\",\n            \"class\": \"com.yahoo.prelude.querytransform.NormalizingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.significance.SignificanceSearcher@music\",\n            \"class\": \"com.yahoo.search.significance.SignificanceSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.jdisc.http.server.jetty.JettyHttpServerContext@jdisc-jetty\",\n            \"class\": \"com.yahoo.jdisc.http.server.jetty.JettyHttpServerContext\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.DefaultPositionSearcher@music\",\n            \"class\": \"com.yahoo.search.querytransform.DefaultPositionSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.jdisc.http.server.jetty.Janitor\",\n            \"class\": \"com.yahoo.jdisc.http.server.jetty.Janitor\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.searcher.BlendingSearcher@vespa\",\n            \"class\": \"com.yahoo.prelude.searcher.BlendingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.yql.MinimalQueryInserter@vespa\",\n            \"class\": \"com.yahoo.search.yql.MinimalQueryInserter\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.querytransform.RecallSearcher@music\",\n            \"class\": \"com.yahoo.prelude.querytransform.RecallSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.statistics.StatisticsSearcher@native\",\n            \"class\": \"com.yahoo.prelude.statistics.StatisticsSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.querytransform.CJKSearcher@music\",\n            \"class\": \"com.yahoo.prelude.querytransform.CJKSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.searchers.InputCheckingSearcher@music\",\n            \"class\": \"com.yahoo.search.searchers.InputCheckingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.ClustersStatus\",\n            \"class\": \"com.yahoo.container.handler.ClustersStatus\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.yql.FieldFilter@vespa\",\n            \"class\": \"com.yahoo.search.yql.FieldFilter\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.cluster.ClusterSearcher@music\",\n            \"class\": \"com.yahoo.prelude.cluster.ClusterSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.searcher.JuniperSearcher@vespa\",\n            \"class\": \"com.yahoo.prelude.searcher.JuniperSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.grouping.GroupingQueryParser@vespa\",\n            \"class\": \"com.yahoo.search.grouping.GroupingQueryParser\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.messagebus.SessionCache\",\n            \"class\": \"com.yahoo.container.jdisc.messagebus.SessionCache\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.WeakAndReplacementSearcher@vespa\",\n            \"class\": \"com.yahoo.search.querytransform.WeakAndReplacementSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.querytransform.LiteralBoostSearcher@music\",\n            \"class\": \"com.yahoo.prelude.querytransform.LiteralBoostSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.logging.JSONAccessLog\",\n            \"class\": \"com.yahoo.container.logging.JSONAccessLog\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.prelude.querytransform.StemmingSearcher@music\",\n            \"class\": \"com.yahoo.prelude.querytransform.StemmingSearcher\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.yql.FieldFiller@music\",\n            \"class\": \"com.yahoo.search.yql.FieldFiller\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"threadpool@default-handler-common\",\n            \"class\": \"com.yahoo.container.handler.threadpool.ContainerThreadpoolImpl\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.container.http.filter.FilterChainRepository\",\n            \"class\": \"com.yahoo.container.http.filter.FilterChainRepository\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"com.yahoo.search.querytransform.SortingDegrader@music\",\n            \"class\": \"com.yahoo.search.querytransform.SortingDegrader\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\"\n        },\n        {\n            \"id\": \"default-ssl-provider@default\",\n            \"class\": \"com.yahoo.jdisc.http.ssl.impl.DefaultSslContextFactoryProvider\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"ai.vespa.modelintegration.evaluator.EmbeddedOnnxRuntime\",\n            \"class\": \"ai.vespa.modelintegration.evaluator.EmbeddedOnnxRuntime\",\n            \"bundle\": \"model-integration:8.521.17\"\n        }\n    ],\n    \"handlers\": [\n        {\n            \"id\": \"com.yahoo.container.usability.BindingsOverviewHandler\",\n            \"class\": \"com.yahoo.container.usability.BindingsOverviewHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.search.handler.SearchHandler\",\n            \"class\": \"com.yahoo.search.handler.SearchHandler\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/search/*\",\n                \"http://*/search\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.document.restapi.resource.DocumentV1ApiHandler\",\n            \"class\": \"com.yahoo.document.restapi.resource.DocumentV1ApiHandler\",\n            \"bundle\": \"vespaclient-container-plugin:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/document/v1/*\",\n                \"http://*/document/v1/*/\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"internalNoThrottledSource@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": [\n                \"mbus://*/internalNoThrottledSource\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.document.restapi.resource.RestApi\",\n            \"class\": \"com.yahoo.document.restapi.resource.RestApi\",\n            \"bundle\": \"vespaclient-container-plugin:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.vespa.http.server.FeedHandler\",\n            \"class\": \"com.yahoo.vespa.http.server.FeedHandler\",\n            \"bundle\": \"vespaclient-container-plugin:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/reserved-for-internal-use/feedapi\",\n                \"http://*/reserved-for-internal-use/feedapi/\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.observability.ApplicationStatusHandler\",\n            \"class\": \"com.yahoo.container.handler.observability.ApplicationStatusHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/ApplicationStatus\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"chain.indexing@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": [\n                \"mbus://*/chain.indexing\"\n            ]\n        },\n        {\n            \"id\": \"source@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": [\n                \"mbus://*/source\"\n            ]\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.metrics.PrometheusV1Handler\",\n            \"class\": \"com.yahoo.container.handler.metrics.PrometheusV1Handler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/prometheus/v1\",\n                \"http://*/prometheus/v1/*\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.metrics.MetricsV2Handler\",\n            \"class\": \"com.yahoo.container.handler.metrics.MetricsV2Handler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/metrics/v2\",\n                \"http://*/metrics/v2/*\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.docproc.jdisc.DocumentProcessingHandler\",\n            \"class\": \"com.yahoo.docproc.jdisc.DocumentProcessingHandler\",\n            \"bundle\": \"container-search-and-docproc:8.521.17\",\n            \"serverBindings\": [\n                \"mbus://*/chain.indexing\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.container.jdisc.state.StateHandler\",\n            \"class\": \"com.yahoo.container.jdisc.state.StateHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/state/v1\",\n                \"http://*/state/v1/*\"\n            ],\n            \"clientBindings\": []\n        },\n        {\n            \"id\": \"com.yahoo.container.handler.VipStatusHandler\",\n            \"class\": \"com.yahoo.container.handler.VipStatusHandler\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [\n                \"http://*/status.html\"\n            ],\n            \"clientBindings\": []\n        }\n    ],\n    \"clients\": [\n        {\n            \"id\": \"internalNoThrottledSource@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": [\n                \"mbus://*/internalNoThrottledSource\"\n            ]\n        },\n        {\n            \"id\": \"chain.indexing@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": [\n                \"mbus://*/chain.indexing\"\n            ]\n        },\n        {\n            \"id\": \"source@MbusClient\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusClient\",\n            \"bundle\": \"container-disc:8.521.17\",\n            \"serverBindings\": [],\n            \"clientBindings\": [\n                \"mbus://*/source\"\n            ]\n        }\n    ],\n    \"servers\": [\n        {\n            \"id\": \"jdisc-jetty\",\n            \"class\": \"com.yahoo.jdisc.http.server.jetty.JettyHttpServer\",\n            \"bundle\": \"container-disc:8.521.17\"\n        },\n        {\n            \"id\": \"chain.indexing@MbusServer\",\n            \"class\": \"com.yahoo.messagebus.jdisc.MbusServer\",\n            \"bundle\": \"container-disc:8.521.17\"\n        }\n    ],\n    \"httpRequestFilters\": [],\n    \"httpResponseFilters\": [],\n    \"processingChains\": {},\n    \"docprocChains\": {\n        \"indexing\": [\n            {\n                \"id\": \"com.yahoo.docprocs.indexing.IndexingProcessor@indexing\",\n                \"class\": \"com.yahoo.docprocs.indexing.IndexingProcessor\",\n                \"bundle\": \"docprocs:8.521.17\"\n            }\n        ]\n    },\n    \"searchChains\": {\n        \"music\": [\n            {\n                \"id\": \"com.yahoo.search.querytransform.NGramSearcher@music\",\n                \"class\": \"com.yahoo.search.querytransform.NGramSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.DefaultPositionSearcher@music\",\n                \"class\": \"com.yahoo.search.querytransform.DefaultPositionSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.querytransform.CJKSearcher@music\",\n                \"class\": \"com.yahoo.prelude.querytransform.CJKSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.querytransform.LiteralBoostSearcher@music\",\n                \"class\": \"com.yahoo.prelude.querytransform.LiteralBoostSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.RangeQueryOptimizer@music\",\n                \"class\": \"com.yahoo.search.querytransform.RangeQueryOptimizer\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.SortingDegrader@music\",\n                \"class\": \"com.yahoo.search.querytransform.SortingDegrader\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.QueryValidator@music\",\n                \"class\": \"com.yahoo.search.searchers.QueryValidator\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.grouping.GroupingValidator@music\",\n                \"class\": \"com.yahoo.search.grouping.GroupingValidator\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.WandSearcher@music\",\n                \"class\": \"com.yahoo.search.querytransform.WandSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.querytransform.RecallSearcher@music\",\n                \"class\": \"com.yahoo.prelude.querytransform.RecallSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.ValidateNearestNeighborSearcher@music\",\n                \"class\": \"com.yahoo.search.searchers.ValidateNearestNeighborSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.ValidateMatchPhaseSearcher@music\",\n                \"class\": \"com.yahoo.search.searchers.ValidateMatchPhaseSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.ValidateFuzzySearcher@music\",\n                \"class\": \"com.yahoo.search.searchers.ValidateFuzzySearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.yql.FieldFiller@music\",\n                \"class\": \"com.yahoo.search.yql.FieldFiller\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.InputCheckingSearcher@music\",\n                \"class\": \"com.yahoo.search.searchers.InputCheckingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.significance.SignificanceSearcher@music\",\n                \"class\": \"com.yahoo.search.significance.SignificanceSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.querytransform.StemmingSearcher@music\",\n                \"class\": \"com.yahoo.prelude.querytransform.StemmingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.querytransform.NormalizingSearcher@music\",\n                \"class\": \"com.yahoo.prelude.querytransform.NormalizingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.VespaLowercasingSearcher@music\",\n                \"class\": \"com.yahoo.search.querytransform.VespaLowercasingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.searcher.ValidateSortingSearcher@music\",\n                \"class\": \"com.yahoo.prelude.searcher.ValidateSortingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.BooleanSearcher@music\",\n                \"class\": \"com.yahoo.search.querytransform.BooleanSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.grouping.vespa.GroupingExecutor@music\",\n                \"class\": \"com.yahoo.search.grouping.vespa.GroupingExecutor\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.searcher.ValidatePredicateSearcher@music\",\n                \"class\": \"com.yahoo.prelude.searcher.ValidatePredicateSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.ContainerLatencySearcher@music\",\n                \"class\": \"com.yahoo.search.searchers.ContainerLatencySearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.cluster.ClusterSearcher@music\",\n                \"class\": \"com.yahoo.prelude.cluster.ClusterSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            }\n        ],\n        \"vespaPhases\": [],\n        \"native\": [\n            {\n                \"id\": \"com.yahoo.prelude.statistics.StatisticsSearcher@native\",\n                \"class\": \"com.yahoo.prelude.statistics.StatisticsSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"federation@native\",\n                \"class\": \"com.yahoo.search.federation.FederationSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            }\n        ],\n        \"vespa\": [\n            {\n                \"id\": \"com.yahoo.prelude.statistics.StatisticsSearcher@native\",\n                \"class\": \"com.yahoo.prelude.statistics.StatisticsSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.querytransform.PhrasingSearcher@vespa\",\n                \"class\": \"com.yahoo.prelude.querytransform.PhrasingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.searcher.FieldCollapsingSearcher@vespa\",\n                \"class\": \"com.yahoo.prelude.searcher.FieldCollapsingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.yql.MinimalQueryInserter@vespa\",\n                \"class\": \"com.yahoo.search.yql.MinimalQueryInserter\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.yql.FieldFilter@vespa\",\n                \"class\": \"com.yahoo.search.yql.FieldFilter\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.searcher.JuniperSearcher@vespa\",\n                \"class\": \"com.yahoo.prelude.searcher.JuniperSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.searcher.PosSearcher@vespa\",\n                \"class\": \"com.yahoo.prelude.searcher.PosSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.semantics.SemanticSearcher@vespa\",\n                \"class\": \"com.yahoo.prelude.semantics.SemanticSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.grouping.GroupingQueryParser@vespa\",\n                \"class\": \"com.yahoo.search.grouping.GroupingQueryParser\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.prelude.searcher.BlendingSearcher@vespa\",\n                \"class\": \"com.yahoo.prelude.searcher.BlendingSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.querytransform.WeakAndReplacementSearcher@vespa\",\n                \"class\": \"com.yahoo.search.querytransform.WeakAndReplacementSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"com.yahoo.search.searchers.OpportunisticWeakAndSearcher@vespa\",\n                \"class\": \"com.yahoo.search.searchers.OpportunisticWeakAndSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            },\n            {\n                \"id\": \"federation@native\",\n                \"class\": \"com.yahoo.search.federation.FederationSearcher\",\n                \"bundle\": \"container-search-and-docproc:8.521.17\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Document",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/document/v1/music/music/docid/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"document",
+						"v1",
+						"music",
+						"music",
+						"docid",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete_document",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/document/v1/music/music/docid/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"v1",
+								"music",
+								"music",
+								"docid",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:09:08 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pathId\": \"/document/v1/music/music/docid/1\",\n    \"id\": \"id:music:music::1\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Explain Ranking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/search/?yql=select+*+from+music+where+title+contains+'Imagine'&ranking.profile=default&ranking.listFeatures=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"search",
+						""
+					],
+					"query": [
+						{
+							"key": "yql",
+							"value": "select+*+from+music+where+title+contains+'Imagine'"
+						},
+						{
+							"key": "ranking.profile",
+							"value": "default"
+						},
+						{
+							"key": "ranking.listFeatures",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ranking_explain_response",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/search/?yql=select+*+from+music+where+title+contains+'Imagine'&ranking.profile=default&ranking.listFeatures=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"search",
+								""
+							],
+							"query": [
+								{
+									"key": "yql",
+									"value": "select+*+from+music+where+title+contains+'Imagine'"
+								},
+								{
+									"key": "ranking.profile",
+									"value": "default"
+								},
+								{
+									"key": "ranking.listFeatures",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:14:36 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"root\": {\n        \"id\": \"toplevel\",\n        \"relevance\": 1,\n        \"fields\": {\n            \"totalCount\": 1\n        },\n        \"coverage\": {\n            \"coverage\": 100,\n            \"documents\": 2,\n            \"full\": true,\n            \"nodes\": 1,\n            \"results\": 1,\n            \"resultsFull\": 1\n        },\n        \"children\": [\n            {\n                \"id\": \"id:music:music::1\",\n                \"relevance\": 0.3818623835995125,\n                \"source\": \"music\",\n                \"fields\": {\n                    \"sddocname\": \"music\",\n                    \"documentid\": \"id:music:music::1\",\n                    \"title\": \"Imagine\",\n                    \"artist\": \"John Lennon\",\n                    \"rankfeatures\": {\n                        \"bm25(artist)\": 0,\n                        \"bm25(title)\": 0.6931471805599453,\n                        \"elementCompleteness(artist).completeness\": 0,\n                        \"elementCompleteness(artist).elementWeight\": 0,\n                        \"elementCompleteness(artist).fieldCompleteness\": 0,\n                        \"elementCompleteness(artist).queryCompleteness\": 0,\n                        \"elementCompleteness(title).completeness\": 1,\n                        \"elementCompleteness(title).elementWeight\": 1,\n                        \"elementCompleteness(title).fieldCompleteness\": 1,\n                        \"elementCompleteness(title).queryCompleteness\": 1,\n                        \"fieldMatch(artist)\": 0,\n                        \"fieldMatch(artist).absoluteOccurrence\": 0,\n                        \"fieldMatch(artist).absoluteProximity\": 0,\n                        \"fieldMatch(artist).completeness\": 0,\n                        \"fieldMatch(artist).degradedMatches\": 0,\n                        \"fieldMatch(artist).earliness\": 0,\n                        \"fieldMatch(artist).fieldCompleteness\": 0,\n                        \"fieldMatch(artist).gapLength\": 0,\n                        \"fieldMatch(artist).gaps\": 0,\n                        \"fieldMatch(artist).head\": 0,\n                        \"fieldMatch(artist).importance\": 0,\n                        \"fieldMatch(artist).longestSequence\": 0,\n                        \"fieldMatch(artist).longestSequenceRatio\": 0,\n                        \"fieldMatch(artist).matches\": 0,\n                        \"fieldMatch(artist).occurrence\": 0,\n                        \"fieldMatch(artist).orderness\": 0,\n                        \"fieldMatch(artist).outOfOrder\": 0,\n                        \"fieldMatch(artist).proximity\": 0,\n                        \"fieldMatch(artist).queryCompleteness\": 0,\n                        \"fieldMatch(artist).relatedness\": 0,\n                        \"fieldMatch(artist).segmentDistance\": 0,\n                        \"fieldMatch(artist).segmentProximity\": 0,\n                        \"fieldMatch(artist).segments\": 0,\n                        \"fieldMatch(artist).significance\": 0,\n                        \"fieldMatch(artist).significantOccurrence\": 0,\n                        \"fieldMatch(artist).tail\": 0,\n                        \"fieldMatch(artist).unweightedProximity\": 0,\n                        \"fieldMatch(artist).weight\": 0,\n                        \"fieldMatch(artist).weightedAbsoluteOccurrence\": 0,\n                        \"fieldMatch(artist).weightedOccurrence\": 0,\n                        \"fieldMatch(title)\": 1,\n                        \"fieldMatch(title).absoluteOccurrence\": 0.01,\n                        \"fieldMatch(title).absoluteProximity\": 0.10000000149011612,\n                        \"fieldMatch(title).completeness\": 1,\n                        \"fieldMatch(title).degradedMatches\": 0,\n                        \"fieldMatch(title).earliness\": 1,\n                        \"fieldMatch(title).fieldCompleteness\": 1,\n                        \"fieldMatch(title).gapLength\": 0,\n                        \"fieldMatch(title).gaps\": 0,\n                        \"fieldMatch(title).head\": 0,\n                        \"fieldMatch(title).importance\": 0.9999998409517663,\n                        \"fieldMatch(title).longestSequence\": 1,\n                        \"fieldMatch(title).longestSequenceRatio\": 1,\n                        \"fieldMatch(title).matches\": 1,\n                        \"fieldMatch(title).occurrence\": 1,\n                        \"fieldMatch(title).orderness\": 1,\n                        \"fieldMatch(title).outOfOrder\": 0,\n                        \"fieldMatch(title).proximity\": 1,\n                        \"fieldMatch(title).queryCompleteness\": 1,\n                        \"fieldMatch(title).relatedness\": 1,\n                        \"fieldMatch(title).segmentDistance\": 0,\n                        \"fieldMatch(title).segmentProximity\": 1,\n                        \"fieldMatch(title).segments\": 1,\n                        \"fieldMatch(title).significance\": 0.9999996819035326,\n                        \"fieldMatch(title).significantOccurrence\": 1,\n                        \"fieldMatch(title).tail\": 0,\n                        \"fieldMatch(title).unweightedProximity\": 1,\n                        \"fieldMatch(title).weight\": 1,\n                        \"fieldMatch(title).weightedAbsoluteOccurrence\": 0.01,\n                        \"fieldMatch(title).weightedOccurrence\": 1,\n                        \"fieldTermMatch(artist,0).firstPosition\": 1000000,\n                        \"fieldTermMatch(artist,0).occurrences\": 0,\n                        \"fieldTermMatch(artist,0).weight\": 0,\n                        \"fieldTermMatch(artist,1).firstPosition\": 1000000,\n                        \"fieldTermMatch(artist,1).occurrences\": 0,\n                        \"fieldTermMatch(artist,1).weight\": 0,\n                        \"fieldTermMatch(artist,2).firstPosition\": 1000000,\n                        \"fieldTermMatch(artist,2).occurrences\": 0,\n                        \"fieldTermMatch(artist,2).weight\": 0,\n                        \"fieldTermMatch(artist,3).firstPosition\": 1000000,\n                        \"fieldTermMatch(artist,3).occurrences\": 0,\n                        \"fieldTermMatch(artist,3).weight\": 0,\n                        \"fieldTermMatch(artist,4).firstPosition\": 1000000,\n                        \"fieldTermMatch(artist,4).occurrences\": 0,\n                        \"fieldTermMatch(artist,4).weight\": 0,\n                        \"fieldTermMatch(title,0).firstPosition\": 0,\n                        \"fieldTermMatch(title,0).occurrences\": 1,\n                        \"fieldTermMatch(title,0).weight\": 1,\n                        \"fieldTermMatch(title,1).firstPosition\": 1000000,\n                        \"fieldTermMatch(title,1).occurrences\": 0,\n                        \"fieldTermMatch(title,1).weight\": 0,\n                        \"fieldTermMatch(title,2).firstPosition\": 1000000,\n                        \"fieldTermMatch(title,2).occurrences\": 0,\n                        \"fieldTermMatch(title,2).weight\": 0,\n                        \"fieldTermMatch(title,3).firstPosition\": 1000000,\n                        \"fieldTermMatch(title,3).occurrences\": 0,\n                        \"fieldTermMatch(title,3).weight\": 0,\n                        \"fieldTermMatch(title,4).firstPosition\": 1000000,\n                        \"fieldTermMatch(title,4).occurrences\": 0,\n                        \"fieldTermMatch(title,4).weight\": 0,\n                        \"firstPhase\": 0.3818623835995125,\n                        \"matches(artist)\": 0,\n                        \"matches(title)\": 1,\n                        \"nativeAttributeMatch\": 0,\n                        \"nativeFieldMatch\": 0.8591903630989032,\n                        \"nativeProximity\": 0,\n                        \"nativeRank\": 0.3818623835995125,\n                        \"queryTermCount\": 1,\n                        \"term(0).connectedness\": 0.10000000149011612,\n                        \"term(0).significance\": 0.5250858329719984,\n                        \"term(0).weight\": 100,\n                        \"term(1).connectedness\": 0,\n                        \"term(1).significance\": 0,\n                        \"term(1).weight\": 0,\n                        \"term(2).connectedness\": 0,\n                        \"term(2).significance\": 0,\n                        \"term(2).weight\": 0,\n                        \"term(3).connectedness\": 0,\n                        \"term(3).significance\": 0,\n                        \"term(3).weight\": 0,\n                        \"term(4).connectedness\": 0,\n                        \"term(4).significance\": 0,\n                        \"term(4).weight\": 0,\n                        \"textSimilarity(artist).fieldCoverage\": 0,\n                        \"textSimilarity(artist).order\": 0,\n                        \"textSimilarity(artist).proximity\": 0,\n                        \"textSimilarity(artist).queryCoverage\": 0,\n                        \"textSimilarity(artist).score\": 0,\n                        \"textSimilarity(title).fieldCoverage\": 1,\n                        \"textSimilarity(title).order\": 1,\n                        \"textSimilarity(title).proximity\": 1,\n                        \"textSimilarity(title).queryCoverage\": 1,\n                        \"textSimilarity(title).score\": 1\n                    }\n                }\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Not Working Batch Indexing Via API",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "not working",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n      \"put\": \"id:music:music::1\",\n      \"fields\": {\n        \"title\": \"Imagine\",\n        \"artist\": \"John Lennon\"\n      }\n    },\n    {\n      \"put\": \"id:music:music::2\",\n      \"fields\": {\n        \"title\": \"Hey Jude\",\n        \"artist\": \"The Beatles\"\n      }\n    }\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/document/v1/music/music/docid/?cluster=music",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"document",
+								"v1",
+								"music",
+								"music",
+								"docid",
+								""
+							],
+							"query": [
+								{
+									"key": "cluster",
+									"value": "music"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 19 May 2025 18:19:22 GMT"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pathId\": \"/document/v1/music/music/docid/\",\n    \"message\": \"Must specify 'destinationCluster' at '/document/v1/music/music/docid/'\"\n}"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,24 @@
+services:
+  vespa:
+    image: vespaengine/vespa
+    container_name: vespa
+    hostname: vespa        # <- This line fixes the issue
+    ports:
+      - "8080:8080"        # HTTP interface (query + document)
+      - "19071:19071"      # Admin console
+    environment:
+      - VESPA_CONFIGSERVERS=vespa
+    volumes:
+      - ./vespa-app:/vespa-app
+    entrypoint: >
+      bash -c "
+        /opt/vespa/bin/vespa-start-configserver &&
+        echo 'Waiting for config server to become ready...' &&
+        until curl -s http://localhost:19071/ApplicationStatus > /dev/null; do
+          echo 'Still waiting...'; sleep 2;
+        done &&
+        echo 'Config server ready. Deploying app...' &&
+        /opt/vespa/bin/vespa-deploy prepare /vespa-app &&
+        /opt/vespa/bin/vespa-deploy activate &&
+        /opt/vespa/bin/vespa-start-services &&
+        tail -f /opt/vespa/logs/vespa/vespa.log"

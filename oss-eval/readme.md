@@ -21,7 +21,7 @@ Based on `Magic Quadrant from Gartner 12 August 2024` on the Observability platf
 | **Elasticsearch** | Full-text, analytics, and vector search with powerful DSL  | Apache Lucene | AGPLv3, SSPL, or Elastic License v2      | 9.0.1          | 10.1.0         |
 | **OpenSearch**    | OSS fork of Elasticsearch with similar capabilities        | Apache Lucene | Apache 2.0              | 3.0.0          | 10.1.0         |
 | **Solr**          | Apache search engine with customizable schema & faceting   | Apache Lucene | Apache 2.0              | 9.8.1          | 9.11.1          |
-| **Vespa**         | Built for AI-powered search at scale, supports on-node ML  | Custom        | Apache 2.0              | 8.348.57       | N/A            |
+| **Vespa**         | Built for AI-powered search at scale, supports on-node ML  | Custom        | Apache 2.0              | 8.521.17       | N/A            |
 | **Meilisearch**   | Lightweight, near-instant search with low resource usage   | Custom (Rust) | MIT                     | 1.7.2          | N/A            |
 | **Typesense**     | Fast and typo-tolerant search engine for small-medium apps | Custom (C++)  | GPLv3 (with commercial) | 0.25.1         | N/A            |
 
