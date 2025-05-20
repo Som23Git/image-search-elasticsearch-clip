@@ -100,6 +100,8 @@ tree notmycorporation.album-recommendation.testingsom.dev.aws-us-east-1c
 3 directories, 4 files
 ```
 
+![cluster_structure_hardware_profile](./assets/cluster_structure_hardware_profile.png)
+
 ---
 
 ## Postman Collection

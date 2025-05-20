@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "d3814428-d198-49c9-bc66-0a464ac28ead",
+		"name": "Meilisearch",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22784222"
+	},
+	"item": [
+		{
+			"name": "Create Index",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"uid\": \"movies\",\n    \"primaryKey\": \"id\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7700/indexes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "creating_indices",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"uid\": \"movies\",\n    \"primaryKey\": \"id\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7700/indexes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 06:10:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"taskUid\": 10,\n    \"indexUid\": \"movies\",\n    \"status\": \"enqueued\",\n    \"type\": \"indexCreation\",\n    \"enqueuedAt\": \"2025-05-20T06:10:52.269643094Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get Indices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7700/indexes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_all_indices",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7700/indexes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 06:02:57 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"uid\": \"movies\",\n            \"createdAt\": \"2025-05-20T05:28:57.921019889Z\",\n            \"updatedAt\": \"2025-05-20T05:29:32.352714002Z\",\n            \"primaryKey\": \"id\"\n        },\n        {\n            \"uid\": \"products\",\n            \"createdAt\": \"2025-05-20T05:46:56.767196971Z\",\n            \"updatedAt\": \"2025-05-20T05:59:03.882518585Z\",\n            \"primaryKey\": \"id\"\n        }\n    ],\n    \"offset\": 0,\n    \"limit\": 20,\n    \"total\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "get Index Stats",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7700/indexes/products/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes",
+						"products",
+						"stats"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get_index_stats",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7700/indexes/products/stats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes",
+								"products",
+								"stats"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 06:08:30 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"numberOfDocuments\": 2,\n    \"rawDocumentDbSize\": 4096,\n    \"avgDocumentSize\": 2040,\n    \"isIndexing\": false,\n    \"numberOfEmbeddings\": 2,\n    \"numberOfEmbeddedDocuments\": 2,\n    \"fieldDistribution\": {\n        \"brand\": 2,\n        \"category\": 2,\n        \"id\": 2,\n        \"price\": 2,\n        \"text\": 2\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Index/Update New Documents",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n      \"id\": 0,\n      \"text\": \"frying pan\",\n      \"brand\": \"Tefal\",\n      \"price\": 15.99,\n      \"category\": \"cookware\",\n      \"_vectors\": { \"image2text\": [0.0, 0.8, -0.2] }\n    },\n    {\n      \"id\": 1,\n      \"text\": \"baking dish\",\n      \"brand\": \"Pyrex\",\n      \"price\": 9.99,\n      \"category\": \"bakeware\",\n      \"_vectors\": { \"image2text\": [1.0, -0.2, 0.0] }\n    }\n  ]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7700/indexes/products/documents",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes",
+						"products",
+						"documents"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update_new_documents",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    {\n      \"id\": 0,\n      \"text\": \"frying pan\",\n      \"brand\": \"Tefal\",\n      \"price\": 15.99,\n      \"category\": \"cookware\",\n      \"_vectors\": { \"image2text\": [0.0, 0.8, -0.2] }\n    },\n    {\n      \"id\": 1,\n      \"text\": \"baking dish\",\n      \"brand\": \"Pyrex\",\n      \"price\": 9.99,\n      \"category\": \"bakeware\",\n      \"_vectors\": { \"image2text\": [1.0, -0.2, 0.0] }\n    }\n  ]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7700/indexes/products/documents",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes",
+								"products",
+								"documents"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 05:58:03 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"taskUid\": 6,\n    \"indexUid\": \"products\",\n    \"status\": \"enqueued\",\n    \"type\": \"documentAdditionOrUpdate\",\n    \"enqueuedAt\": \"2025-05-20T05:58:03.82930621Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Index Settings",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"filterableAttributes\": [\"brand\", \"price\", \"category\"],\n    \"sortableAttributes\": [\"price\"]\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7700/indexes/products/settings",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes",
+						"products",
+						"settings"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "update_index_settings",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filterableAttributes\": [\"brand\", \"price\", \"category\"],\n    \"sortableAttributes\": [\"price\"]\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7700/indexes/products/settings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes",
+								"products",
+								"settings"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 05:59:03 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"taskUid\": 7,\n    \"indexUid\": \"products\",\n    \"status\": \"enqueued\",\n    \"type\": \"settingsUpdate\",\n    \"enqueuedAt\": \"2025-05-20T05:59:03.849597127Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Hybrid Search Query Sort",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vector\": [0.0, 1.0, 2.0],\n    \"hybrid\": {\n      \"embedder\": \"image2text\",\n      \"semanticRatio\": 0.9\n    },\n    \"sort\": [\"price:asc\"],\n    \"retrieveVectors\": true\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7700/indexes/products/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes",
+						"products",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "hybrid_search_query_sort",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vector\": [0.0, 1.0, 2.0],\n    \"hybrid\": {\n      \"embedder\": \"image2text\",\n      \"semanticRatio\": 0.9\n    },\n    \"sort\": [\"price:asc\"],\n    \"retrieveVectors\": true\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7700/indexes/products/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes",
+								"products",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 05:59:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"hits\": [\n        {\n            \"id\": 0,\n            \"text\": \"frying pan\",\n            \"brand\": \"Tefal\",\n            \"price\": 15.99,\n            \"category\": \"cookware\",\n            \"_vectors\": {\n                \"image2text\": {\n                    \"embeddings\": [\n                        [\n                            0,\n                            0.800000011920929,\n                            -0.20000000298023224\n                        ]\n                    ],\n                    \"regenerate\": false\n                }\n            }\n        },\n        {\n            \"id\": 1,\n            \"text\": \"baking dish\",\n            \"brand\": \"Pyrex\",\n            \"price\": 9.99,\n            \"category\": \"bakeware\",\n            \"_vectors\": {\n                \"image2text\": {\n                    \"embeddings\": [\n                        [\n                            1,\n                            -0.20000000298023224,\n                            0\n                        ]\n                    ],\n                    \"regenerate\": false\n                }\n            }\n        }\n    ],\n    \"query\": \"\",\n    \"processingTimeMs\": 1,\n    \"limit\": 20,\n    \"offset\": 0,\n    \"estimatedTotalHits\": 2,\n    \"semanticHitCount\": 2\n}"
+				}
+			]
+		},
+		{
+			"name": "Hybrid Search Query Sort Filter",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"vector\": [0.0, 1.0, 2.0],\n    \"hybrid\": {\n      \"embedder\": \"image2text\",\n      \"semanticRatio\": 1.0\n    },\n    \"filter\": \"brand = Tefal\",\n    \"retrieveVectors\": true\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:7700/indexes/products/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes",
+						"products",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "hybrid_search_query_filter",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vector\": [0.0, 1.0, 2.0],\n    \"hybrid\": {\n      \"embedder\": \"image2text\",\n      \"semanticRatio\": 1.0\n    },\n    \"filter\": \"brand = Tefal\",\n    \"retrieveVectors\": true\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:7700/indexes/products/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes",
+								"products",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 06:01:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"hits\": [\n        {\n            \"id\": 0,\n            \"text\": \"frying pan\",\n            \"brand\": \"Tefal\",\n            \"price\": 15.99,\n            \"category\": \"cookware\",\n            \"_vectors\": {\n                \"image2text\": {\n                    \"embeddings\": [\n                        [\n                            0,\n                            0.800000011920929,\n                            -0.20000000298023224\n                        ]\n                    ],\n                    \"regenerate\": false\n                }\n            }\n        }\n    ],\n    \"query\": \"\",\n    \"processingTimeMs\": 0,\n    \"limit\": 20,\n    \"offset\": 0,\n    \"estimatedTotalHits\": 1,\n    \"semanticHitCount\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Index",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mysecretkey"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:7700/indexes/movies",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7700",
+					"path": [
+						"indexes",
+						"movies"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "deleting_index",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer mysecretkey"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:7700/indexes/movies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "7700",
+							"path": [
+								"indexes",
+								"movies"
+							]
+						}
+					},
+					"status": "Accepted",
+					"code": 202,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "transfer-encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						},
+						{
+							"key": "vary",
+							"value": "Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+						},
+						{
+							"key": "vary",
+							"value": "accept-encoding"
+						},
+						{
+							"key": "content-encoding",
+							"value": "br"
+						},
+						{
+							"key": "date",
+							"value": "Tue, 20 May 2025 06:07:43 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"taskUid\": 8,\n    \"indexUid\": \"movies\",\n    \"status\": \"enqueued\",\n    \"type\": \"indexDeletion\",\n    \"enqueuedAt\": \"2025-05-20T06:07:43.313615465Z\"\n}"
+				}
+			]
+		}
+	]
+}

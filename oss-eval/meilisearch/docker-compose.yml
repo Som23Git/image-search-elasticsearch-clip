@@ -1,0 +1,21 @@
+services:
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    container_name: meilisearch
+    environment:
+      MEILI_MASTER_KEY: 'mysecretkey'
+    ports:
+      - "7700:7700"
+    volumes:
+      - ./meili_data:/meili_data
+
+  meili-ui:
+    image: riccoxie/meilisearch-ui
+    container_name: meili-ui
+    ports:
+      - "8080:24900"
+    environment:
+      VITE_MEILISEARCH_HOST: "http://meilisearch:7700"
+      VITE_MEILISEARCH_API_KEY: "mysecretkey"
+    depends_on:
+      - meilisearch
