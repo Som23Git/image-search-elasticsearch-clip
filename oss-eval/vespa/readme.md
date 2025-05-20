@@ -76,6 +76,30 @@ Pointers where, **Elasticsearch overpowers Vespa**
 
 ---
 
+## Vespa Cloud Setup
+
+![vespa_cloud_deploying_application](./assets/vespa_cloud_deploying_application.png)
+
+![vespa_application_deployment](./assets/vespa_application_deployment.png)
+
+Attaching the [Application Package](vespa/assets/notmycorporation.album-recommendation.testingsom.dev.aws-us-east-1c.zip.) used to create the deployment.
+
+```bash
+# Directory structure
+tree notmycorporation.album-recommendation.testingsom.dev.aws-us-east-1c
+.
+├── README.md
+├── schemas
+│   └── music.sd
+├── security
+│   └── clients.pem
+└── services.xml
+
+3 directories, 4 files
+```
+
+---
+
 ## Postman Collection
 
 * A [Postman collection](oss-eval/vespa/Vespa.postman_collection.json) is included with sample response from the APIs for:
