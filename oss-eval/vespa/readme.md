@@ -61,8 +61,6 @@ Pointers where, **Elasticsearch overpowers Vespa**
 | **Grafana Integration** | Exposes Prometheus metrics at `/prometheus/v1`, which can be visualized using Grafana               |
 | **Custom UI**           | You can build your own frontend using the search API (`http://localhost:8080/search/`)              |
 
-![vespa\_docker\_container](./assets/vespa_docker_container.png)
-
 ---
 
 ## CLI Tools Summary
@@ -75,6 +73,10 @@ Pointers where, **Elasticsearch overpowers Vespa**
 | **REST API + curl**         | Direct HTTP API interaction — fallback option for nearly all use cases                                |
 
 ---
+
+## Vespa Local Setup
+
+![vespa\_docker\_container](./assets/vespa_docker_container.png)
 
 ## Vespa Cloud Setup
 
