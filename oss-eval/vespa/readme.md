@@ -5,9 +5,32 @@
 * **License**: [Apache License 2.0](https://github.com/vespa-engine/vespa/blob/master/LICENSE), developed by Yahoo.
 * **Direct Comparison with Elasticsearch**: [Vespa vs. Elasticsearch Performance](https://blog.vespa.ai/elasticsearch-vs-vespa-performance-comparison/)
 * **Perplexity's Use Case**: [Perplexity Partners with Vespa](https://vespa.ai/perplexity-partners-with-vespa-ai-to-bring-its-search-function-in-house/)
-**Open Sourcing Vespa, Yahoo’s Big Data Processing and Serving Engine**: [Explanation of Vespa Architecture](https://blog.vespa.ai/open-sourcing-vespa-yahoos-big-data-processing/)
+* **Open Sourcing Vespa, Yahoo’s Big Data Processing and Serving Engine**: [Explanation of Vespa Architecture](https://blog.vespa.ai/open-sourcing-vespa-yahoos-big-data-processing/)
+* [How **Vinted Engineering** Moved from Elasticsearch of 6 clusters to One Vespa cluster](https://vinted.engineering/2024/09/05/goodbye-elasticsearch-hello-vespa/)
 
 ![vespa_architecture](./assets/vespa_architecture.png)
+
+**Elasticsearch comparison** that I see **Vespa** stands out:
+* **Written in C++, Vespa avoids JVM garbage collection latency issues — this is a huge advantage in latency-critical applications.**
+* **Multi-threaded per query (parallel execution)**
+
+**Elasticsearch discussions** on the `single threaded per query or per shard`:
+
+- [shard-lucene-segments-single-threaded](https://discuss.elastic.co/t/shard-lucene-segments-single-threaded/263696)
+- [how-search-works-in-a-single-elasticsearch-shard-lucene-index](https://discuss.elastic.co/t/how-search-works-in-a-single-elasticsearch-shard-lucene-index/35892)
+- [one-query-thread-per-shard](https://discuss.elastic.co/t/one-query-thread-per-shard/71744)
+
+Currently **Vespa** is the backend engine for `Flickr`, `Yahoo Finance`, and all `Yahoo Search`.
+
+Pointers where, **Elasticsearch overpowers Vespa**
+
+- [Need a beefy spec to run Vespa atleast 6 GB RAM with 50 GB disk](https://blog.vespa.ai/how-i-learned-vespa-by-thinking-in-solr/)
+- No native-orchestration systems to plan autoscaling.
+- It still needs to depends on its `Admin + Config Server`(where, the Zookeeper is deployed for the state management which is `Java`)
+- Node roles include `config server`, `container node`, `content node`, and optionally `admin node`.
+
+**Data Distribution in Vespa:**
+![Data_Distribution_in_Vespa](./assets/data_distribution.png)
 
 ---
 
@@ -16,8 +39,8 @@
 * Vespa is a **low-level, CLI-driven platform** for real-time search and inference.
 * It does **not rely on Apache Lucene**; instead, it is built from scratch for large-scale content + vector serving.
 * Fully **open-source** under Apache 2.0.
-* It supports **ANN and vector search**, but does **not come with built-in ML models** — you run your model externally (e.g., Python/Colab), perform embeddings, and ingest into Vespa.
-* Queries use **YQL (Vespa Query Language)** — expressive and SQL-like.
+* It supports **ANN and vector search**, but does **not come with built-in ML models** - you run your model externally (e.g., Python/Colab), perform embeddings, and ingest into Vespa.
+* Queries use **YQL (Vespa Query Language)** - expressive and SQL-like.
 * Metrics are exposed via **Prometheus**, enabling Grafana dashboards.
 * While powerful, it **lacks a built-in UI**; most tasks are done via CLI, REST APIs, or custom dashboards.
 * The **core engine** is primarily written in `C++` (for performance-critical components) and `Java` (for orchestration, configuration, and some application logic)
