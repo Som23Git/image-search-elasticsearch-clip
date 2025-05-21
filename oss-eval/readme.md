@@ -109,5 +109,3 @@ Based on `Magic Quadrant from Gartner 12 August 2024` on the Observability platf
 This repo is for educational and benchmarking purposes only. Please review each product’s license individually before using in production.
 
 ---
-
-_Contributions are welcome!_
