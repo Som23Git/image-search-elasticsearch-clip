@@ -10,6 +10,10 @@ A lightweight, quick setup of vector database for AI-powered applications — te
 - **GitHub**: [qdrant/qdrant](https://github.com/qdrant/qdrant)
 - **Latest Stable Release**: [v1.14.0 – April 2025](https://github.com/qdrant/qdrant/releases/tag/v1.14.0)
 - **Purpose**: Optimized for fast and scalable vector search using **HNSW** (Hierarchical Navigable Small World graphs) with built-in  quantization support only for `int8` now from `float32`.
+- **Official High-level Overview**: Refer documentation [here](https://qdrant.tech/documentation/overview/#high-level-overview-of-qdrants-architecture)
+
+![qdrant_high_level_overview](./assets/qdrant_high_level_overview.png) 
+
 - **Benchmarks**: Comparing [Qdrant vs Elasticsearch](https://qdrant.tech/benchmarks/)
 
 ![qdrant_benchmark_vs_elasticsearch](./assets/qdrant_benchmark_vs_elasticsearch.png)
