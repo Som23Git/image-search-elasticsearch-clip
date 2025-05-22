@@ -1,0 +1,33 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+exporters:
+  splunk_hec:
+    token: "00000000-0000-0000-0000-000000000000"
+    endpoint: "http://splunk:8088"
+    source: "otel"
+    sourcetype: "otel"
+    index: "main"
+    tls:
+      insecure_skip_verify: true
+
+processors:
+  batch:
+
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [splunk_hec]
+    metrics:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [splunk_hec]
+    logs:
+      receivers: [otlp]
+      processors: [batch]
+      exporters: [splunk_hec]

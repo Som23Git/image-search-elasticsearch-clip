@@ -1,0 +1,47 @@
+services:
+  splunk:
+    image: splunk/splunk:latest
+    container_name: splunk
+    environment:
+      - SPLUNK_START_ARGS=--accept-license
+      - SPLUNK_PASSWORD=changeme
+      - SPLUNK_HEC_TOKEN=00000000-0000-0000-0000-000000000000
+    ports:
+      - "8000:8000"   # Splunk Web
+      - "8088:8088"   # HEC endpoint
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8000']
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - splunk_data:/opt/splunk/var
+      - splunk_etc:/opt/splunk/etc
+
+  otel-collector:
+    image: quay.io/signalfx/splunk-otel-collector:latest
+    container_name: otel-collector
+    command: ["--config=/etc/otel-collector-config.yml"]
+    volumes:
+      - ./otel-collector/otel-collector-config.yml:/etc/otel-collector-config.yml
+    ports:
+      - "4317:4317"   # OTLP gRPC
+      - "4318:4318"   # OTLP HTTP
+    depends_on:
+      splunk:
+        condition: service_healthy
+
+  flask-app:
+    build: ./flask_app
+    container_name: flask-app
+    environment:
+      - OTEL_EXPORTER_OTLP_ENDPOINT=http://otel-collector:4317
+      - OTEL_SERVICE_NAME=flask-app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - otel-collector
+
+volumes:
+  splunk_data:
+  splunk_etc:
