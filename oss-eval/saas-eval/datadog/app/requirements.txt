@@ -1,0 +1,6 @@
+flask
+ddtrace
+opentelemetry-sdk
+opentelemetry-instrumentation-flask
+opentelemetry-exporter-otlp
+psycopg2-binary

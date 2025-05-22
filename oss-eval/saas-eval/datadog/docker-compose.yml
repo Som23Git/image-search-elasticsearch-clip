@@ -1,0 +1,69 @@
+version: '3.8'
+
+services:
+  # Sample Flask App (Datadog APM via ddtrace)
+  app:
+    build: ./app
+    ports:
+      - "5001:5000"
+    environment:
+      - DD_AGENT_HOST=datadog-agent
+      - DD_ENV=dev
+      - DD_SERVICE=sample-app
+      - DD_VERSION=1.0
+    depends_on:
+      - db
+      - datadog-agent
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=sampledb
+    ports:
+      - "5432:5432"
+
+  # Datadog Agent
+  datadog-agent:
+    image: datadog/agent:latest
+    environment:
+      - DD_API_KEY=${DD_API_KEY}
+      - DD_SITE=us5.datadoghq.com
+      - DD_APM_ENABLED=true
+      - DD_LOGS_ENABLED=true
+      - DD_LOGS_CONFIG_CONTAINER_COLLECT_ALL=true
+      - DD_PROCESS_CONFIG_PROCESS_COLLECTION_ENABLED=true
+      - DD_CONTAINER_EXCLUDE="name:datadog-agent"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
+
+  # Elasticsearch
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.5
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - xpack.ml.enabled=false
+    ports:
+      - "9200:9200"
+
+  # Kibana
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.17.5
+    ports:
+      - "5601:5601"
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+
+  # Filebeat (shipping Docker logs to Elasticsearch)
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.17.5
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    depends_on:
+      - elasticsearch
