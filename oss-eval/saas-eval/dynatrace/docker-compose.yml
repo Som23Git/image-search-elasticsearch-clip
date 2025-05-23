@@ -1,0 +1,15 @@
+services:
+  dynatrace-demo-app:
+    build: ./app
+    container_name: dynatrace-python
+    ports:
+      - "5050:5050"               
+    environment:
+      - DT_API_TOKEN=${DT_API_TOKEN}
+      - DT_ENV_URL=${DT_ENV_URL}
+    volumes:
+      - dynatrace-app-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  dynatrace-app-data:

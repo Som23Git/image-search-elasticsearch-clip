@@ -1,0 +1,27 @@
+from flask import Flask, Response
+from send_metrics import send_custom_metric
+import os
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return 'Dynatrace Demo App is Running!'
+
+@app.route('/simulate')
+def simulate():
+    send_custom_metric("demo.metric.load", 42)
+    return 'Metric sent to Dynatrace!'
+
+@app.route('/logs')
+def show_logs():
+    log_file = "/app/data/metrics.log"
+    if os.path.exists(log_file):
+        with open(log_file, "r") as f:
+            content = f.read()
+        return Response(content, mimetype='text/plain')
+    else:
+        return Response("No logs found.", mimetype='text/plain', status=404)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5050)
