@@ -1,0 +1,1744 @@
+{
+  "name": "alternatives",
+  "version": "1.15-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "audit-libs",
+  "version": "3.0.6-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "bash",
+  "version": "5.2.15-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "coreutils-single",
+  "version": "8.32-30.amzn2023.0.3",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "crypto-policies",
+  "version": "20240828-2.git626aa59.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "LGPL-2.1-or-later",
+      "spdxExpression": "LGPL-2.1-or-later",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "dnf",
+  "version": "4.14.0-1.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "dnf-data",
+  "version": "4.14.0-1.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "elfutils-default-yama-scope",
+  "version": "0.188-3.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+ or LGPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "elfutils-libelf",
+  "version": "0.188-3.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+ or LGPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "elfutils-libs",
+  "version": "0.188-3.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+ or LGPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gawk",
+  "version": "5.1.0-3.amzn2023.0.3",
+  "licenses": [
+    {
+      "value": "GPLv3+ and GPLv2+ and LGPLv2+ and BSD",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gdbm-libs",
+  "version": "1:1.19-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "glib2",
+  "version": "2.82.2-765.amzn2023",
+  "licenses": [
+    {
+      "value": "LGPL-2.1-or-later",
+      "spdxExpression": "LGPL-2.1-or-later",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "glibc",
+  "version": "2.34-117.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "glibc-common",
+  "version": "2.34-117.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "glibc-minimal-langpack",
+  "version": "2.34-117.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "LGPLv2+ and LGPLv2+ with exceptions and GPLv2+ and GPLv2+ with exceptions and BSD and Inner-Net and ISC and Public Domain and GFDL",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gmp",
+  "version": "1:6.2.1-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv3+ or GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gnupg2-minimal",
+  "version": "2.3.7-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gpg",
+  "version": "1.15.1",
+  "licenses": [
+    {
+      "value": "LGPL2.1+ (the library), GPL2+ (tests and examples)",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/lib64/python3.9/site-packages/gpg-1.15.1-py3.9.egg-info",
+          "layerID": "sha256:b19030f87c70d9ba86a32ca3ed28674dc907ca6814f71918d4e74e0bc0abc9aa",
+          "accessPath": "/usr/lib64/python3.9/site-packages/gpg-1.15.1-py3.9.egg-info"
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gpgme",
+  "version": "1.15.1-6.amzn2023.0.3",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "grep",
+  "version": "3.8-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "gzip",
+  "version": "1.12-1.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "GPLv3+ and GFDL",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "jakarta.transaction-api",
+  "version": "1.3.3",
+  "licenses": [
+    {
+      "value": "EPL 2.0",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [
+        "http://www.eclipse.org/legal/epl-2.0"
+      ],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "GPL2 w/ CPE",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [
+        "https://www.gnu.org/software/classpath/license.html"
+      ],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "javassist",
+  "version": "3.26.0-GA",
+  "licenses": [
+    {
+      "value": "Apache License 2.0",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [
+        "http://www.apache.org/licenses/"
+      ],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "LGPL 2.1",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [
+        "http://www.gnu.org/licenses/lgpl-2.1.html"
+      ],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "MPL 1.1",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [
+        "http://www.mozilla.org/MPL/MPL-1.1.html"
+      ],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-sql/opensearch-sql-3.0.0.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "jna",
+  "version": "5.16.0",
+  "licenses": [
+    {
+      "value": "Apache-2.0",
+      "spdxExpression": "Apache-2.0",
+      "type": "concluded",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/lib/jna-5.16.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/lib/jna-5.16.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "LGPL-2.1",
+      "spdxExpression": "LGPL-2.1-only",
+      "type": "concluded",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/lib/jna-5.16.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/lib/jna-5.16.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "sha256:521bb271ac56e0e29a1b1b688b94af17d00d378fc8e63478d8c8b2a7c4a229d0",
+      "spdxExpression": "",
+      "type": "concluded",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/lib/jna-5.16.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/lib/jna-5.16.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "jna-platform",
+  "version": "5.16.0",
+  "licenses": [
+    {
+      "value": "Apache-2.0",
+      "spdxExpression": "Apache-2.0",
+      "type": "concluded",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-knn/jna-platform-5.16.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-knn/jna-platform-5.16.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "LGPL-2.1",
+      "spdxExpression": "LGPL-2.1-only",
+      "type": "concluded",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-knn/jna-platform-5.16.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-knn/jna-platform-5.16.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    },
+    {
+      "value": "sha256:521bb271ac56e0e29a1b1b688b94af17d00d378fc8e63478d8c8b2a7c4a229d0",
+      "spdxExpression": "",
+      "type": "concluded",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/share/opensearch/plugins/opensearch-knn/jna-platform-5.16.0.jar",
+          "layerID": "sha256:7a00191c86466e6e6e1808fbe019b80a173a2078419c307f7a7cb54423ca134a",
+          "accessPath": "/usr/share/opensearch/plugins/opensearch-knn/jna-platform-5.16.0.jar",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "keyutils-libs",
+  "version": "1.6.3-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+ and LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libacl",
+  "version": "2.3.1-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libarchive",
+  "version": "3.7.4-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "BSD-2-Clause AND FSFULLR AND GPL-2.0-or-later WITH Libtool-exception AND BSD-3-Clause AND FSFUL",
+      "spdxExpression": "BSD-2-Clause AND FSFULLR AND GPL-2.0-or-later WITH Libtool-exception AND BSD-3-Clause AND FSFUL",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libassuan",
+  "version": "2.5.5-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+ and GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libattr",
+  "version": "2.5.1-3.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libblkid",
+  "version": "2.37.4-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libcap",
+  "version": "2.73-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "BSD-3-Clause OR GPL-2.0-only",
+      "spdxExpression": "BSD-3-Clause OR GPL-2.0-only",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libcap-ng",
+  "version": "0.8.2-4.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libcomps",
+  "version": "0.1.20",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/usr/lib64/python3.9/site-packages/libcomps-0.1.20-py3.9.egg-info/PKG-INFO",
+          "layerID": "sha256:b19030f87c70d9ba86a32ca3ed28674dc907ca6814f71918d4e74e0bc0abc9aa",
+          "accessPath": "/usr/lib64/python3.9/site-packages/libcomps-0.1.20-py3.9.egg-info/PKG-INFO"
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libcomps",
+  "version": "0.1.20-1.amzn2023",
+  "licenses": [
+    {
+      "value": "GPL-2.0-or-later",
+      "spdxExpression": "GPL-2.0-or-later",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libdnf",
+  "version": "0.69.0-8.amzn2023.0.5",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libgcc",
+  "version": "14.2.1-7.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-exception-3.1) AND (GPL-3.0-or-later WITH Texinfo-exception) AND (LGPL-2.1-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GNU-compiler-exception) AND BSL-1.0 AND GFDL-1.3-or-later AND Linux-man-pages-copyleft-2-para AND SunPro AND BSD-1-Clause AND BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND BSD-4-Clause AND BSD-Source-Code AND Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 WITH LLVM-Exception) AND ZPL-2.1 AND ISC AND LicenseRef-Fedora-Public-Domain AND HP-1986 AND curl AND Martin-Birgmeier AND HPND-Markus-Kuhn AND dtoa AND SMLNJ AND AMD-newlib AND OAR AND HPND-merchantability-variant AND HPND-Intel",
+      "spdxExpression": "GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-exception-3.1) AND (GPL-3.0-or-later WITH Texinfo-exception) AND (LGPL-2.1-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GNU-compiler-exception) AND BSL-1.0 AND GFDL-1.3-or-later AND Linux-man-pages-copyleft-2-para AND SunPro AND BSD-1-Clause AND BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND BSD-4-Clause AND BSD-Source-Code AND Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 WITH LLVM-Exception) AND ZPL-2.1 AND ISC AND LicenseRef-Fedora-Public-Domain AND HP-1986 AND curl AND Martin-Birgmeier AND HPND-Markus-Kuhn AND dtoa AND SMLNJ AND AMD-newlib AND OAR AND HPND-merchantability-variant AND HPND-Intel",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libgcrypt",
+  "version": "1.10.2-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libgomp",
+  "version": "14.2.1-7.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-exception-3.1) AND (GPL-3.0-or-later WITH Texinfo-exception) AND (LGPL-2.1-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GNU-compiler-exception) AND BSL-1.0 AND GFDL-1.3-or-later AND Linux-man-pages-copyleft-2-para AND SunPro AND BSD-1-Clause AND BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND BSD-4-Clause AND BSD-Source-Code AND Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 WITH LLVM-Exception) AND ZPL-2.1 AND ISC AND LicenseRef-Fedora-Public-Domain AND HP-1986 AND curl AND Martin-Birgmeier AND HPND-Markus-Kuhn AND dtoa AND SMLNJ AND AMD-newlib AND OAR AND HPND-merchantability-variant AND HPND-Intel",
+      "spdxExpression": "GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-exception-3.1) AND (GPL-3.0-or-later WITH Texinfo-exception) AND (LGPL-2.1-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GNU-compiler-exception) AND BSL-1.0 AND GFDL-1.3-or-later AND Linux-man-pages-copyleft-2-para AND SunPro AND BSD-1-Clause AND BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND BSD-4-Clause AND BSD-Source-Code AND Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 WITH LLVM-Exception) AND ZPL-2.1 AND ISC AND LicenseRef-Fedora-Public-Domain AND HP-1986 AND curl AND Martin-Birgmeier AND HPND-Markus-Kuhn AND dtoa AND SMLNJ AND AMD-newlib AND OAR AND HPND-merchantability-variant AND HPND-Intel",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libgpg-error",
+  "version": "1.42-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libidn2",
+  "version": "2.3.2-1.amzn2023.0.5",
+  "licenses": [
+    {
+      "value": "(GPLv2+ or LGPLv3+) and GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libmount",
+  "version": "2.37.4-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "librepo",
+  "version": "1.14.5-2.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libreport-filesystem",
+  "version": "2.15.2-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libsemanage",
+  "version": "3.4-5.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libsepol",
+  "version": "3.4-3.amzn2023.0.3",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libsigsegv",
+  "version": "2.13-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libsmartcols",
+  "version": "2.37.4-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libstdc++",
+  "version": "14.2.1-7.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-exception-3.1) AND (GPL-3.0-or-later WITH Texinfo-exception) AND (LGPL-2.1-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GNU-compiler-exception) AND BSL-1.0 AND GFDL-1.3-or-later AND Linux-man-pages-copyleft-2-para AND SunPro AND BSD-1-Clause AND BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND BSD-4-Clause AND BSD-Source-Code AND Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 WITH LLVM-Exception) AND ZPL-2.1 AND ISC AND LicenseRef-Fedora-Public-Domain AND HP-1986 AND curl AND Martin-Birgmeier AND HPND-Markus-Kuhn AND dtoa AND SMLNJ AND AMD-newlib AND OAR AND HPND-merchantability-variant AND HPND-Intel",
+      "spdxExpression": "GPL-3.0-or-later AND LGPL-3.0-or-later AND (GPL-3.0-or-later WITH GCC-exception-3.1) AND (GPL-3.0-or-later WITH Texinfo-exception) AND (LGPL-2.1-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GCC-exception-2.0) AND (GPL-2.0-or-later WITH GNU-compiler-exception) AND BSL-1.0 AND GFDL-1.3-or-later AND Linux-man-pages-copyleft-2-para AND SunPro AND BSD-1-Clause AND BSD-2-Clause AND BSD-2-Clause-Views AND BSD-3-Clause AND BSD-4-Clause AND BSD-Source-Code AND Zlib AND MIT AND Apache-2.0 AND (Apache-2.0 WITH LLVM-Exception) AND ZPL-2.1 AND ISC AND LicenseRef-Fedora-Public-Domain AND HP-1986 AND curl AND Martin-Birgmeier AND HPND-Markus-Kuhn AND dtoa AND SMLNJ AND AMD-newlib AND OAR AND HPND-merchantability-variant AND HPND-Intel",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libtasn1",
+  "version": "4.19.0-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "GPLv3+ and LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libunistring",
+  "version": "0.9.10-10.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLV2+ or LGPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libxcrypt",
+  "version": "4.4.33-7.amzn2023",
+  "licenses": [
+    {
+      "value": "LGPL-2.1-or-later AND BSD-3-Clause AND BSD-2-Clause AND BSD-2-Clause-FreeBSD AND 0BSD AND CC0-1.0 AND LicenseRef-Fedora-Public-Domain",
+      "spdxExpression": "LGPL-2.1-or-later AND BSD-3-Clause AND BSD-2-Clause AND BSD-2-Clause-FreeBSD AND 0BSD AND CC0-1.0 AND LicenseRef-Fedora-Public-Domain",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "libzstd",
+  "version": "1.5.5-1.amzn2023.0.1",
+  "licenses": [
+    {
+      "value": "BSD and GPLv2",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "lz4-libs",
+  "version": "1.9.4-1.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv2+ and BSD",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "mpfr",
+  "version": "4.1.0-7.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "npth",
+  "version": "1.6-6.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-dnf",
+  "version": "4.14.0-1.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-gpg",
+  "version": "1.15.1-6.amzn2023.0.3",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-hawkey",
+  "version": "0.69.0-8.amzn2023.0.5",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-libcomps",
+  "version": "0.1.20-1.amzn2023",
+  "licenses": [
+    {
+      "value": "GPL-2.0-or-later",
+      "spdxExpression": "GPL-2.0-or-later",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-libdnf",
+  "version": "0.69.0-8.amzn2023.0.5",
+  "licenses": [
+    {
+      "value": "LGPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-pip-wheel",
+  "version": "21.3.1-2.amzn2023.0.11",
+  "licenses": [
+    {
+      "value": "MIT and Python and ASL 2.0 and BSD and ISC and LGPLv2 and MPLv2.0 and (ASL 2.0 or BSD)",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "python3-rpm",
+  "version": "4.16.1.3-29.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "readline",
+  "version": "8.1-2.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "rpm",
+  "version": "4.16.1.3-29.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "rpm-build-libs",
+  "version": "4.16.1.3-29.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+ and LGPLv2+ with exceptions",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "rpm-libs",
+  "version": "4.16.1.3-29.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+ and LGPLv2+ with exceptions",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "rpm-sign-libs",
+  "version": "4.16.1.3-29.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+ and LGPLv2+ with exceptions",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "sed",
+  "version": "4.8-7.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "shadow-utils",
+  "version": "2:4.9-12.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "BSD and GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "tar",
+  "version": "2:1.34-1.amzn2023.0.4",
+  "licenses": [
+    {
+      "value": "GPLv3+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "which",
+  "version": "2.21-26.amzn2023.0.2",
+  "licenses": [
+    {
+      "value": "GPLv3",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
+{
+  "name": "yum",
+  "version": "4.14.0-1.amzn2023.0.6",
+  "licenses": [
+    {
+      "value": "GPLv2+",
+      "spdxExpression": "",
+      "type": "declared",
+      "urls": [],
+      "locations": [
+        {
+          "path": "/var/lib/rpm/rpmdb.sqlite",
+          "layerID": "sha256:26c5937e9c8a93fdc57a2c9fed1afee40cea9f239cb495c413443ecb7c29f247",
+          "accessPath": "/var/lib/rpm/rpmdb.sqlite",
+          "annotations": {
+            "evidence": "primary"
+          }
+        }
+      ]
+    }
+  ]
+}
